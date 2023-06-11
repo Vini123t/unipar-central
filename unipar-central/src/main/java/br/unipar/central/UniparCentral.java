@@ -1,6 +1,6 @@
 package br.unipar.central;
 
-import br.unipar.central.enums.TipoPessoaEnum;
+
 import br.unipar.central.models.Estado;
 import br.unipar.central.models.Pais;
 import br.unipar.central.models.Pessoa;

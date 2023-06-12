@@ -59,7 +59,7 @@ public class EstadoDAO {
                 Estado estado = new Estado();
                 estado.setId(rs.getInt("ID"));
                 estado.setNome(rs.getString("NOME"));
-                estado.setRegistroAcademico(
+                estado.setRa(
                         rs.getString("RA"));
                 estado.setSigla(rs.getString("SIGLA"));
                 
@@ -109,7 +109,7 @@ public class EstadoDAO {
                retorno = new Estado();
                retorno.setId(rs.getInt("ID"));
                retorno.setNome(rs.getString("NOME"));
-               retorno.setRegistroAcademico(
+               retorno.setRa(
                        rs.getString("RA"));
                retorno.setSigla(rs.getString("SIGLA"));
                retorno.setPais(
@@ -145,7 +145,7 @@ public class EstadoDAO {
             pstmt.setInt(1, estado.getId());
             pstmt.setString(2, estado.getNome());
             pstmt.setString(3, estado.getSigla());
-            pstmt.setString(4, estado.getRegistroAcademico());
+            pstmt.setString(4, estado.getRa());
             pstmt.setInt(5, estado.getPais().getId());
             
             pstmt.executeUpdate();   
@@ -171,7 +171,7 @@ public class EstadoDAO {
             pstmt = conn.prepareStatement(UPDATE);
             pstmt.setString(1, estado.getNome());
             pstmt.setString(2, estado.getSigla());
-            pstmt.setString(3, estado.getRegistroAcademico());
+            pstmt.setString(3, estado.getRa());
             pstmt.setInt(4, estado.getPais().getId());
             pstmt.setInt(5, estado.getId());
             

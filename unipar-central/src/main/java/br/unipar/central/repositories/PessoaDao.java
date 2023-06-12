@@ -1,29 +1,31 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package br.unipar.central.repositories;
 
-import br.unipar.central.models.Pais;
 import br.unipar.central.utils.DatabaseUtils;
+import br.unipar.central.models.Pessoa;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PaisDAO {
-    private static final String INSERT = "INSERT INTO PAIS(ID, NOME, SIGLA,RA)" +
-                                            "VALUES (?, ?, ?, ?)";
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
-    private static final String FIND_ALL = "SELECT ID, NOME, SIGLA, RA FROM PAIS";
-    private static final String FIND_BY_ID = "SELECT ID, NOME, SIGLA, RA FROM PAIS WHERE ID = ?";
-    private static final String DELETE_BY_ID = "DELETE FROM PAIS WHERE ID = ?";
-    private static final String UPDATE = "UPDATE PAIS SET NOME = ?, SIGLA = ?, RA = ? WHERE ID = ?";
+public class PessoaDao {
+    private static final String INSERT = "INSERT INTO PESSOA(ID, EMAIL, RA)" +
+            "VALUES (?, ?, ?)";
 
-    public List<Pais> findAll() throws SQLException {
-        ArrayList<Pais> retorno = new ArrayList<>();
+    private static final String FIND_ALL = "SELECT ID, EMAIL, RA FROM PESSOA";
+    private static final String FIND_BY_ID = "SELECT ID, EMAIL, RA FROM PESSOA WHERE ID = ?";
+    private static final String DELETE_BY_ID = "DELETE FROM PESSOA WHERE ID = ?";
+    private static final String UPDATE = "UPDATE PESSOA SET EMAIL = ?, RA = ? WHERE ID = ?";
+
+    public List<Pessoa> findAll() throws SQLException {
+        ArrayList<Pessoa> retorno = new ArrayList<>();
         Connection conn = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
@@ -33,12 +35,12 @@ public class PaisDAO {
             pstmt = conn.prepareStatement(FIND_ALL);
             rs = pstmt.executeQuery();
             while(rs.next()){
-                Pais pais = new Pais();
-                pais.setId(rs.getInt("ID"));
-                pais.setNome(rs.getString("NOME"));
-                pais.setSigla(rs.getString("SIGLA"));
-                pais.setRa(rs.getString("RA"));
-                retorno.add(pais);
+                Pessoa pessoa = new Pessoa();
+                pessoa.setId(rs.getInt("ID"));
+                pessoa.setEmail(rs.getString("EMAIL"));
+                pessoa.setRa(rs.getString("RA"));
+
+                retorno.add(pessoa);
             }
         }finally {
             if(rs != null){
@@ -56,11 +58,11 @@ public class PaisDAO {
         return retorno;
     }
 
-    public Pais findById(int id) throws SQLException {
+    public Pessoa findById(int id) throws SQLException {
         Connection conn = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
-        Pais retorno = null;
+        Pessoa retorno = null;
 
         try {
             conn = new DatabaseUtils().getConnection();
@@ -69,11 +71,10 @@ public class PaisDAO {
             rs = pstmt.executeQuery();
 
             while(rs.next()){
-                retorno = new Pais();
+                retorno = new Pessoa();
                 retorno.setId(rs.getInt("ID"));
+                retorno.setEmail(rs.getString("EMAIL"));
                 retorno.setRa(rs.getString("RA"));
-                retorno.setNome(rs.getString("NOME"));
-                retorno.setSigla(rs.getString("SIGLA"));
             }
 
 
@@ -93,21 +94,28 @@ public class PaisDAO {
         return retorno;
     }
 
-    public void insert(Pais pais) throws SQLException{
+    public int insert(Pessoa pessoa) throws SQLException{
         Connection conn = null;
         PreparedStatement pstmt = null;
+        ResultSet rs = null;
 
         try {
             conn = new DatabaseUtils().getConnection();
-            pstmt = conn.prepareStatement(INSERT);
-            pstmt.setInt(1, pais.getId());
-            pstmt.setString(2, pais.getNome());
-            pstmt.setString(3, pais.getSigla());
-            pstmt.setString(4, pais.getRa());
+            pstmt = conn.prepareStatement(INSERT, Statement.RETURN_GENERATED_KEYS);
+            pstmt.setInt(1, pessoa.getId());
+            pstmt.setString(2, pessoa.getEmail());
+            pstmt.setString(3, pessoa.getRa());
             pstmt.executeUpdate();
+            rs = pstmt.getGeneratedKeys();
+
+            return rs.getInt(0);
 
 
         } finally {
+            if (rs != null) {
+                rs.close();
+            }
+
             if (pstmt != null) {
                 pstmt.close();
             }
@@ -118,17 +126,16 @@ public class PaisDAO {
         }
     }
 
-    public void update(Pais pais) throws SQLException{
+    public void update(Pessoa pessoa) throws SQLException{
         Connection conn = null;
         PreparedStatement pstmt = null;
 
         try {
             conn = new DatabaseUtils().getConnection();
             pstmt = conn.prepareStatement(UPDATE);
-            pstmt.setString(1, pais.getNome());
-            pstmt.setString(2, pais.getSigla());
-            pstmt.setString(3, pais.getRa());
-            pstmt.setInt(4, pais.getId());
+            pstmt.setString(1, pessoa.getEmail());
+            pstmt.setString(2, pessoa.getRa());
+            pstmt.setInt(3, pessoa.getId());
             pstmt.executeUpdate();
 
 
@@ -163,5 +170,6 @@ public class PaisDAO {
             }
         }
     }
-
 }
+
+

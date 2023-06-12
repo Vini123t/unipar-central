@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class PessoaJuridica extends Pessoa {
-
+    private Pessoa pessoa;
     private String razaoSocial;
     private String cnpj;
     private String cnaePrincipal;
@@ -12,13 +12,21 @@ public class PessoaJuridica extends Pessoa {
 
     public PessoaJuridica() {
     }
-
-    public PessoaJuridica(String email, ArrayList<Endereco> listaEndereco, ArrayList<Telefone> listaTelefone, String razaoSocial, String cnpj, String cnaePrincipal, String fantasia) {
+    
+  public PessoaJuridica(String email, ArrayList<Endereco> listaEndereco, ArrayList<Telefone> listaTelefone, String razaoSocial, String cnpj, String cnaePrincipal, String fantasia) {
         super(email, listaEndereco, listaTelefone);
         this.razaoSocial = razaoSocial;
         this.cnpj = cnpj;
         this.cnaePrincipal = cnaePrincipal;
         this.fantasia = fantasia;
+    }
+
+    public Pessoa getPessoa() {
+        return pessoa;
+    }
+
+    public void setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
     }
 
     public String getRazaoSocial() {
@@ -55,11 +63,15 @@ public class PessoaJuridica extends Pessoa {
 
     @Override
     public String toString() {
-        return "PessoaJuridica{"
-                + "razaoSocial='" + razaoSocial + '\''
-                + ", cnpj='" + cnpj + '\''
-                + ", cnaePrincipal='" + cnaePrincipal + '\''
-                + ", fantasia='" + fantasia + '\''
-                + '}';
+        return "Dados da Pessoa Jurídica: \n"
+                + "Pessoa: " + pessoa + "\n"
+                + "Razão Social: " + razaoSocial + "\n"
+                + "CNPJ: " + cnpj + "\n "
+                + "CNAE Principal: " + cnaePrincipal + "\n"
+                + "Fantasia: " + fantasia + "\n";
     }
+    
+    
+    
+    
 }

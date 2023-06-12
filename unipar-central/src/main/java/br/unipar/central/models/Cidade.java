@@ -1,28 +1,16 @@
-
 package br.unipar.central.models;
 
-
 public class Cidade {
-    
-    private int id;
+
     private String nome;
     private Estado estado;
 
     public Cidade() {
     }
 
-    public Cidade(int id, String nome, Estado estado) {
-        this.id = id;
+    public Cidade(String nome, Estado estado) {
         this.nome = nome;
         this.estado = estado;
-    }
-    
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getNome() {
@@ -43,7 +31,9 @@ public class Cidade {
 
     @Override
     public String toString() {
-        return "Cidade{" + "id=" + id + ", nome=" + nome + ", estado=" + estado + '}';
+        return "Cidade{"
+                + ", nome='" + nome +  "\n"
+                + ", estado=" + estado + "\n"
+                + '}';
     }
-    
 }

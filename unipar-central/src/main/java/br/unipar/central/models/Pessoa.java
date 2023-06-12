@@ -1,84 +1,55 @@
-
 package br.unipar.central.models;
 
 import java.sql.Date;
 import java.util.ArrayList;
 
+public class Pessoa extends AbstractBaseEntity {
 
-public class Pessoa {
-    
-    private int id;
-    private String nome;
-    private String documento;
-    private Date dtNascimento;
-    private ArrayList<Endereco> enderecos;
-    private ArrayList<Telefone> telefones;
+    private String email;
+    private ArrayList<Endereco> listaEndereco;
+    private ArrayList<Telefone> listaTelefone;
 
     public Pessoa() {
     }
 
-    public Pessoa(int id, String nome, String documento, Date dtNascimento, ArrayList<Endereco> enderecos, ArrayList<Telefone> telefones) {
-        this.id = id;
-        this.nome = nome;
-        this.documento = documento;
-        this.dtNascimento = dtNascimento;
-       
-        this.enderecos = enderecos;
-        this.telefones = telefones;
+    public Pessoa(String email, ArrayList<Endereco> listaEndereco, ArrayList<Telefone> listaTelefone) {
+        this.email = email;
+        this.listaEndereco = listaEndereco;
+        this.listaTelefone = listaTelefone;
     }
 
-    public int getId() {
-        return id;
+    public String getEmail() {
+        return email;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getNome() {
-        return nome;
+    public ArrayList<Endereco> getListaEndereco() {
+        return listaEndereco;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setListaEndereco(ArrayList<Endereco> listaEndereco) {
+        this.listaEndereco = listaEndereco;
     }
 
-    public String getDocumento() {
-        return documento;
+    public ArrayList<Telefone> getListaTelefone() {
+        return listaTelefone;
     }
 
-    public void setDocumento(String documento) {
-        this.documento = documento;
-    }
-
-    public Date getDtNascimento() {
-        return dtNascimento;
-    }
-
-    public void setDtNascimento(Date dtNascimento) {
-        this.dtNascimento = dtNascimento;
-    }
-
-
-    public ArrayList<Endereco> getEnderecos() {
-        return enderecos;
-    }
-
-    public void setEnderecos(ArrayList<Endereco> enderecos) {
-        this.enderecos = enderecos;
-    }
-
-    public ArrayList<Telefone> getTelefones() {
-        return telefones;
-    }
-
-    public void setTelefones(ArrayList<Telefone> telefones) {
-        this.telefones = telefones;
+    public void setListaTelefone(ArrayList<Telefone> listaTelefone) {
+        this.listaTelefone = listaTelefone;
     }
 
     @Override
     public String toString() {
-        return "Pessoa{" + "id=" + id + ", nome=" + nome + ", documento=" + documento + ", dtNascimento=" + dtNascimento + ", tipoPessoa=" +   ", enderecos=" + enderecos + ", telefones=" + telefones + '}';
+        return "Pessoa{"
+                + "  id='" + getId() + "\n"
+                + ", ra='" + getRa() + "\n"
+                + ", email='" + email + "\n"
+                + ", listaEndereco=" + listaEndereco + "\n"
+                + ", listaTelefone=" + listaTelefone
+                + '}';
     }
-    
 }

@@ -1,8 +1,7 @@
-
 package br.unipar.central.models;
 
 public class Estado extends AbstractBaseEntity {
-   
+
     private String nome;
     private String sigla;
     private Pais pais;
@@ -10,7 +9,7 @@ public class Estado extends AbstractBaseEntity {
     public Estado() {
     }
 
-    public Estado(String nome, String sigla, Pais pais) {
+    public Estado(long id, String nome, String sigla, Pais pais) {
         this.nome = nome;
         this.sigla = sigla;
         this.pais = pais;
@@ -40,6 +39,12 @@ public class Estado extends AbstractBaseEntity {
         this.pais = pais;
     }
 
-    
-    
+    @Override
+    public String toString() {
+        return "Estado{"
+                + ", nome='" + nome + "\n"
+                + ", sigla='" + sigla + "\n"
+                + ", pais=" + pais
+                + '}';
+    }
 }

@@ -1,9 +1,7 @@
-
 package br.unipar.central.models;
 
 public class Endereco {
-    
-    private int id;
+
     private String logradouro;
     private String numero;
     private String bairro;
@@ -12,24 +10,16 @@ public class Endereco {
     private Cidade cidade;
 
     public Endereco() {
+
     }
 
-    public Endereco(int id, String logradouro, String numero, String bairro, String cep, String complemento, Cidade cidade) {
-        this.id = id;
+    public Endereco(String logradouro, String numero, String bairro, String cep, String complemento, Cidade cidade) {
         this.logradouro = logradouro;
         this.numero = numero;
         this.bairro = bairro;
         this.cep = cep;
         this.complemento = complemento;
         this.cidade = cidade;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getLogradouro() {
@@ -82,7 +72,13 @@ public class Endereco {
 
     @Override
     public String toString() {
-        return "Endereco{" + "id=" + id + ", logradouro=" + logradouro + ", numero=" + numero + ", bairro=" + bairro + ", cep=" + cep + ", complemento=" + complemento + ", cidade=" + cidade + '}';
+        return "Endereco{"
+                + ", logradouro='" + logradouro + "\n"
+                + ", numero='" + numero + "\n"
+                + ", bairro='" + bairro + "\n"
+                + ", cep='" + cep + "\n"
+                + ", complemento='" + complemento + "\n"
+                + ", cidade=" + cidade + "\n"
+                + '}';
     }
- 
 }

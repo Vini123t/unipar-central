@@ -1,19 +1,9 @@
-
 package br.unipar.central.models;
 
-
 public abstract class AbstractBaseEntity {
-    
+
     private int id;
-    private String registroAcademico;
-
-    public String getRegistroAcademico() {
-        return registroAcademico;
-    }
-
-    public void setRegistroAcademico(String registroAcademico) {
-        this.registroAcademico = registroAcademico;
-    }
+    private String ra;
 
     public int getId() {
         return id;
@@ -22,5 +12,13 @@ public abstract class AbstractBaseEntity {
     public void setId(int id) {
         this.id = id;
     }
-    
+
+    public String getRa() {
+        return ra;
+    }
+
+    public void setRa(String ra) {
+        this.ra = ra;
+    }
+
 }

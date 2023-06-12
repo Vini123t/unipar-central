@@ -1,31 +1,18 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package br.unipar.central.models;
 
+import br.unipar.central.enums.OperadoraEnum;
 
-public class Telefone {
-    
-    private int id;
+public class Telefone extends AbstractBaseEntity {
+
     private String numero;
-    private String operadora;
+    private OperadoraEnum operadoraEnum;
 
     public Telefone() {
     }
 
-    public Telefone(int id, String numero, String operadora) {
-        this.id = id;
+    public Telefone(String numero, OperadoraEnum operadoraEnum) {
         this.numero = numero;
-        this.operadora = operadora;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+        this.operadoraEnum = operadoraEnum;
     }
 
     public String getNumero() {
@@ -36,17 +23,21 @@ public class Telefone {
         this.numero = numero;
     }
 
-    public String getOperadora() {
-        return operadora;
+    public OperadoraEnum getOperadoraEnum() {
+        return operadoraEnum;
     }
 
-    public void setOperadora(String operadora) {
-        this.operadora = operadora;
+    public void setOperadoraEnum(OperadoraEnum operadoraEnum) {
+        this.operadoraEnum = operadoraEnum;
     }
 
     @Override
     public String toString() {
-        return "Telefone{" + "id=" + id + ", numero=" + numero + ", operadora=" + operadora + '}';
+        return "Telefone{"
+                + " id=" + getId() + "\n"
+                + ", ra=" + getRa() + "\n"
+                + ", numero='" + numero + "\n" 
+                + ", operadoraEnum=" + operadoraEnum
+                + '}';
     }
-
 }

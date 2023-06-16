@@ -12,9 +12,18 @@ public class PessoaJuridica extends Pessoa {
 
     public PessoaJuridica() {
     }
-    
-  public PessoaJuridica(String email, ArrayList<Endereco> listaEndereco, ArrayList<Telefone> listaTelefone, String razaoSocial, String cnpj, String cnaePrincipal, String fantasia) {
-        super(email, listaEndereco, listaTelefone);
+
+    public PessoaJuridica(Pessoa pessoa, String razaoSocial, String cnpj, String cnaePrincipal, String fantasia) {
+        this.pessoa = pessoa;
+        this.razaoSocial = razaoSocial;
+        this.cnpj = cnpj;
+        this.cnaePrincipal = cnaePrincipal;
+        this.fantasia = fantasia;
+    }
+
+    public PessoaJuridica(Pessoa pessoa, String razaoSocial, String cnpj, String cnaePrincipal, String fantasia, int id, String email, ArrayList<Endereco> listaEndereco, ArrayList<Telefone> listaTelefone) {
+        super(id, email, listaEndereco, listaTelefone);
+        this.pessoa = pessoa;
         this.razaoSocial = razaoSocial;
         this.cnpj = cnpj;
         this.cnaePrincipal = cnaePrincipal;
@@ -63,13 +72,10 @@ public class PessoaJuridica extends Pessoa {
 
     @Override
     public String toString() {
-        return "Dados da Pessoa Jurídica: \n"
-                + "Pessoa: " + pessoa + "\n"
-                + "Razão Social: " + razaoSocial + "\n"
-                + "CNPJ: " + cnpj + "\n "
-                + "CNAE Principal: " + cnaePrincipal + "\n"
-                + "Fantasia: " + fantasia + "\n";
+        return "PessoaJuridica{" + "pessoa=" + pessoa + ", razaoSocial=" + razaoSocial + ", cnpj=" + cnpj + ", cnaePrincipal=" + cnaePrincipal + ", fantasia=" + fantasia + '}';
     }
+    
+    
     
     
     

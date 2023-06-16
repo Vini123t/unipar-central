@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 public class Pessoa extends AbstractBaseEntity {
 
+    private int id;
     private String email;
     private ArrayList<Endereco> listaEndereco;
     private ArrayList<Telefone> listaTelefone;
@@ -12,10 +13,19 @@ public class Pessoa extends AbstractBaseEntity {
     public Pessoa() {
     }
 
-    public Pessoa(String email, ArrayList<Endereco> listaEndereco, ArrayList<Telefone> listaTelefone) {
+    public Pessoa(int id, String email, ArrayList<Endereco> listaEndereco, ArrayList<Telefone> listaTelefone) {
+        this.id = id;
         this.email = email;
         this.listaEndereco = listaEndereco;
         this.listaTelefone = listaTelefone;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getEmail() {
@@ -44,12 +54,11 @@ public class Pessoa extends AbstractBaseEntity {
 
     @Override
     public String toString() {
-        return "Pessoa{"
-                + "  id='" + getId() + "\n"
-                + ", ra='" + getRa() + "\n"
-                + ", email='" + email + "\n"
-                + ", listaEndereco=" + listaEndereco + "\n"
-                + ", listaTelefone=" + listaTelefone
-                + '}';
+        return "Pessoa{" + "id=" + id + ", email=" + email + ", listaEndereco=" + listaEndereco + ", listaTelefone=" + listaTelefone + '}';
     }
+    
+    
+    
+   
+    
 }

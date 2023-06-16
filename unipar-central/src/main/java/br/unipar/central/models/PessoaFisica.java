@@ -1,7 +1,6 @@
 package br.unipar.central.models;
 
-import java.util.ArrayList;
-import java.util.Date;
+import java.sql.Date;
 
 public class PessoaFisica extends Pessoa {
 
@@ -9,16 +8,17 @@ public class PessoaFisica extends Pessoa {
     private String cpf;
     private String rg;
     private Date dataNascimento;
+    private Pessoa pessoa;
 
     public PessoaFisica() {
     }
 
-    public PessoaFisica(String email, ArrayList<Endereco> listaEndereco, ArrayList<Telefone> listaTelefone, String nome, String cpf, String rg, Date dataNascimento) {
-        super(email, listaEndereco, listaTelefone);
+    public PessoaFisica(String nome, String cpf, String rg, Date dataNascimento, Pessoa pessoa) {
         this.nome = nome;
         this.cpf = cpf;
         this.rg = rg;
         this.dataNascimento = dataNascimento;
+        this.pessoa = pessoa;
     }
 
     public String getNome() {
@@ -53,13 +53,23 @@ public class PessoaFisica extends Pessoa {
         this.dataNascimento = dataNascimento;
     }
 
+    public Pessoa getPessoa() {
+        return pessoa;
+    }
+
+    public void setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
+    }
+
     @Override
     public String toString() {
-        return "PessoaFisica{"
-                + "nome='" + nome + '\''
-                + ", cpf='" + cpf + '\''
-                + ", rg='" + rg + '\''
-                + ", dataNascimento=" + dataNascimento
-                + '}';
+        return "PessoaFisica{" + "nome=" + nome + ", cpf=" + cpf + ", rg=" + rg + ", dataNascimento=" + dataNascimento + ", pessoa=" + pessoa + '}';
     }
+    
+    
+    
+    
+    
+
+    
 }

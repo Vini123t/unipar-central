@@ -1,18 +1,26 @@
 package br.unipar.central.models;
 
+
 import br.unipar.central.enums.OperadoraEnum;
 
-public class Telefone extends AbstractBaseEntity {
+public class Telefone {
 
+    private int id;
     private String numero;
-    private OperadoraEnum operadoraEnum;
+    private OperadoraEnum operadora;
+    private String ra;
+    private Agencia agencia;
+    private Pessoa pessoa;
 
     public Telefone() {
     }
 
-    public Telefone(String numero, OperadoraEnum operadoraEnum) {
-        this.numero = numero;
-        this.operadoraEnum = operadoraEnum;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNumero() {
@@ -23,21 +31,45 @@ public class Telefone extends AbstractBaseEntity {
         this.numero = numero;
     }
 
-    public OperadoraEnum getOperadoraEnum() {
-        return operadoraEnum;
+    public OperadoraEnum getOperadora() {
+        return operadora;
     }
 
-    public void setOperadoraEnum(OperadoraEnum operadoraEnum) {
-        this.operadoraEnum = operadoraEnum;
+    public void setOperadora(OperadoraEnum operadora) {
+        this.operadora = operadora;
     }
 
+    public String getRa() {
+        return ra;
+    }
+
+    public void setRa(String ra) {
+        this.ra = ra;
+    }
+
+    public Agencia getAgencia() {
+        return agencia;
+    }
+
+    public void setAgencia(Agencia agencia) {
+        this.agencia = agencia;
+    }
+
+    public Pessoa getPessoa() {
+        return pessoa;
+    }
+
+    public void setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
+    }
+
+    public void message(){
+        System.out.println("---------------------------------DADOS----------------------------------");
+    }
+    
     @Override
     public String toString() {
-        return "Telefone{"
-                + " id=" + getId() + "\n"
-                + ", ra=" + getRa() + "\n"
-                + ", numero='" + numero + "\n" 
-                + ", operadoraEnum=" + operadoraEnum
-                + '}';
+        return "\nId=" + id + ", numero=" + numero + ", operadora=" + operadora + ", ra=" + ra + ", agencia=" + agencia + ", pessoa=" + pessoa + '}';
     }
+
 }

@@ -2,27 +2,26 @@ package br.unipar.central.models;
 
 import br.unipar.central.enums.TipoContaEnum;
 
+public class Conta {
 
-public class Conta extends AbstractBaseEntity {
-
+    private int id;
     private String numero;
     private String digito;
     private double saldo;
     private TipoContaEnum tipoConta;
-
+    private String ra;
     private Agencia agencia;
     private Pessoa pessoa;
 
     public Conta() {
     }
 
-    public Conta(String numero, String digito, double saldo, TipoContaEnum tipoConta, Agencia agencia, Pessoa pessoa) {
-        this.numero = numero;
-        this.digito = digito;
-        this.saldo = saldo;
-        this.tipoConta = tipoConta;
-        this.agencia = agencia;
-        this.pessoa = pessoa;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNumero() {
@@ -57,6 +56,14 @@ public class Conta extends AbstractBaseEntity {
         this.tipoConta = tipoConta;
     }
 
+    public String getRa() {
+        return ra;
+    }
+
+    public void setRa(String ra) {
+        this.ra = ra;
+    }
+
     public Agencia getAgencia() {
         return agencia;
     }
@@ -73,15 +80,13 @@ public class Conta extends AbstractBaseEntity {
         this.pessoa = pessoa;
     }
 
+    public void message(){
+        System.out.println("---------------------------------DADOS----------------------------------");
+    }
+    
     @Override
     public String toString() {
-        return "Conta{"
-                + ", numero='" + numero + '\''
-                + ", digito='" + digito + '\''
-                + ", saldo=" + saldo
-                + ", tipoConta=" + tipoConta
-                + ", agencia=" + agencia
-                + ", pessoa=" + pessoa
-                + '}';
+        return "\nid=" + id + ", numero=" + numero + ", digito=" + digito + ", saldo=" + saldo + ", tipoConta=" + tipoConta + ", ra=" + ra + ", agencia=" + agencia + ", pessoa=" + pessoa + '}';
     }
+
 }

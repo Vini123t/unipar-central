@@ -1,18 +1,22 @@
 package br.unipar.central.models;
 
-public class Estado extends AbstractBaseEntity {
+public class Estado {
 
+    private int id;
     private String nome;
     private String sigla;
+    private String ra;
     private Pais pais;
 
     public Estado() {
     }
 
-    public Estado(long id, String nome, String sigla, Pais pais) {
-        this.nome = nome;
-        this.sigla = sigla;
-        this.pais = pais;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNome() {
@@ -31,6 +35,14 @@ public class Estado extends AbstractBaseEntity {
         this.sigla = sigla;
     }
 
+    public String getRa() {
+        return ra;
+    }
+
+    public void setRa(String ra) {
+        this.ra = ra;
+    }
+
     public Pais getPais() {
         return pais;
     }
@@ -39,12 +51,14 @@ public class Estado extends AbstractBaseEntity {
         this.pais = pais;
     }
 
+    public void message(){
+        System.out.println("---------------------------------DADOS----------------------------------");
+    }
     @Override
     public String toString() {
-        return "Estado{"
-                + ", nome='" + nome + "\n"
-                + ", sigla='" + sigla + "\n"
-                + ", pais=" + pais
-                + '}';
+        return "\nid=" + id + ", nome=" + nome + ", sigla=" + sigla + ", ra=" + ra + ", pais=" + pais + '}';
     }
+
+    
+
 }

@@ -2,24 +2,25 @@ package br.unipar.central.models;
 
 public class Endereco {
 
+    private int id;
     private String logradouro;
     private String numero;
     private String bairro;
     private String cep;
     private String complemento;
+    private String ra;
     private Cidade cidade;
+    private Pessoa pessoa;
 
     public Endereco() {
-
     }
 
-    public Endereco(String logradouro, String numero, String bairro, String cep, String complemento, Cidade cidade) {
-        this.logradouro = logradouro;
-        this.numero = numero;
-        this.bairro = bairro;
-        this.cep = cep;
-        this.complemento = complemento;
-        this.cidade = cidade;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getLogradouro() {
@@ -62,6 +63,14 @@ public class Endereco {
         this.complemento = complemento;
     }
 
+    public String getRa() {
+        return ra;
+    }
+
+    public void setRa(String ra) {
+        this.ra = ra;
+    }
+
     public Cidade getCidade() {
         return cidade;
     }
@@ -70,15 +79,21 @@ public class Endereco {
         this.cidade = cidade;
     }
 
+    public Pessoa getPessoa() {
+        return pessoa;
+    }
+
+    public void setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
+    }
+
+    public void message(){
+        System.out.println("---------------------------------DADOS----------------------------------");
+    }
+    
     @Override
     public String toString() {
-        return "Endereco{"
-                + ", logradouro='" + logradouro + "\n"
-                + ", numero='" + numero + "\n"
-                + ", bairro='" + bairro + "\n"
-                + ", cep='" + cep + "\n"
-                + ", complemento='" + complemento + "\n"
-                + ", cidade=" + cidade + "\n"
-                + '}';
+        return "\nid=" + id + ", logradouro=" + logradouro + ", numero=" + numero + ", bairro=" + bairro + ", cep=" + cep + ", complemento=" + complemento + ", ra=" + ra + ", cidade=" + cidade + ", pessoa=" + pessoa + '}';
     }
+
 }

@@ -1,14 +1,21 @@
 package br.unipar.central.models;
 
-public class Pais extends AbstractBaseEntity{
+public class Pais {
+
+    private int id;
     private String nome;
     private String sigla;
+    private String ra;
+
     public Pais() {
     }
 
-    public Pais( String nome, String sigla) {
-        this.nome = nome;
-        this.sigla = sigla;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNome() {
@@ -27,14 +34,23 @@ public class Pais extends AbstractBaseEntity{
         this.sigla = sigla;
     }
 
+    public String getRa() {
+        return ra;
+    }
+
+    public void setRa(String ra) {
+        this.ra = ra;
+    }
+    
+    public void message(){
+        System.out.println("---------------------------------DADOS----------------------------------");
+    }
 
     @Override
     public String toString() {
-        return "Pais{" +
-                ", nome='" + nome + '\'' +
-                ", sigla='" + sigla + '\'' +
-                ", ra='" + getRa() + '\'' +
-                ", id='" + getId() + '\'' +
-                '}';
+        return "\nid=" + id + ", nome=" + nome + ", sigla=" + sigla + ", ra=" + ra + '}';
     }
+    
+    
+
 }

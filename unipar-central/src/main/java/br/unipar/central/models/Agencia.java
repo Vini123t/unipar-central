@@ -1,22 +1,24 @@
 package br.unipar.central.models;
 
-import java.util.ArrayList;
+public class Agencia {
 
-public class Agencia extends AbstractBaseEntity {
-
+    private int id;
     private String codigo;
+    private String digito;
     private String razaoSocial;
     private String cnpj;
-    private ArrayList<Telefone> listaTelefone;
+    private String ra;
+    private Banco banco;
 
     public Agencia() {
     }
 
-    public Agencia(String codigo, String razaoSocial, String cnpj, ArrayList<Telefone> listaTelefone) {
-        this.codigo = codigo;
-        this.razaoSocial = razaoSocial;
-        this.cnpj = cnpj;
-        this.listaTelefone = listaTelefone;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getCodigo() {
@@ -25,6 +27,14 @@ public class Agencia extends AbstractBaseEntity {
 
     public void setCodigo(String codigo) {
         this.codigo = codigo;
+    }
+
+    public String getDigito() {
+        return digito;
+    }
+
+    public void setDigito(String digito) {
+        this.digito = digito;
     }
 
     public String getRazaoSocial() {
@@ -43,21 +53,28 @@ public class Agencia extends AbstractBaseEntity {
         this.cnpj = cnpj;
     }
 
-    public ArrayList<Telefone> getListaTelefone() {
-        return listaTelefone;
+    public String getRa() {
+        return ra;
     }
 
-    public void setListaTelefone(ArrayList<Telefone> listaTelefone) {
-        this.listaTelefone = listaTelefone;
+    public void setRa(String ra) {
+        this.ra = ra;
+    }
+
+    public Banco getBanco() {
+        return banco;
+    }
+
+    public void setBanco(Banco banco) {
+        this.banco = banco;
+    }
+
+    public void message(){
+        System.out.println("---------------------------------DADOS----------------------------------");
     }
 
     @Override
     public String toString() {
-        return "Agencia{"
-                + ", codigo='" + codigo + '\''
-                + ", razaoSocial='" + razaoSocial + '\''
-                + ", cnpj='" + cnpj + '\''
-                + ", listaTelefone=" + listaTelefone
-                + '}';
+        return "\nid=" + id + ", codigo=" + codigo + ", digito=" + digito + ", razaosocial=" + razaoSocial + ", cnpj=" + cnpj + ", ra=" + ra + ", banco=" + banco + '}';
     }
 }

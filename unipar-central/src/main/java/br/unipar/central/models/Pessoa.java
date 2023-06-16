@@ -1,21 +1,22 @@
 package br.unipar.central.models;
 
-import java.sql.Date;
-import java.util.ArrayList;
+;
 
-public class Pessoa extends AbstractBaseEntity {
+public class Pessoa {
 
+    private int id;
     private String email;
-    private ArrayList<Endereco> listaEndereco;
-    private ArrayList<Telefone> listaTelefone;
+    private String ra;
 
     public Pessoa() {
     }
 
-    public Pessoa(String email, ArrayList<Endereco> listaEndereco, ArrayList<Telefone> listaTelefone) {
-        this.email = email;
-        this.listaEndereco = listaEndereco;
-        this.listaTelefone = listaTelefone;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getEmail() {
@@ -26,30 +27,20 @@ public class Pessoa extends AbstractBaseEntity {
         this.email = email;
     }
 
-    public ArrayList<Endereco> getListaEndereco() {
-        return listaEndereco;
+    public String getRa() {
+        return ra;
     }
 
-    public void setListaEndereco(ArrayList<Endereco> listaEndereco) {
-        this.listaEndereco = listaEndereco;
+    public void setRa(String ra) {
+        this.ra = ra;
     }
 
-    public ArrayList<Telefone> getListaTelefone() {
-        return listaTelefone;
+    public void message(){
+        System.out.println("---------------------------------DADOS----------------------------------");
     }
-
-    public void setListaTelefone(ArrayList<Telefone> listaTelefone) {
-        this.listaTelefone = listaTelefone;
-    }
-
+    
     @Override
     public String toString() {
-        return "Pessoa{"
-                + "  id='" + getId() + "\n"
-                + ", ra='" + getRa() + "\n"
-                + ", email='" + email + "\n"
-                + ", listaEndereco=" + listaEndereco + "\n"
-                + ", listaTelefone=" + listaTelefone
-                + '}';
+        return "\nId=" + id + ", Email=" + email + ", Ra=" + ra + "";
     }
 }

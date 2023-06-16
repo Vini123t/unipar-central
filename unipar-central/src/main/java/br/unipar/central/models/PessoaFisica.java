@@ -1,24 +1,16 @@
 package br.unipar.central.models;
 
-import java.util.ArrayList;
-import java.util.Date;
+import java.sql.Date;
 
-public class PessoaFisica extends Pessoa {
+public class PessoaFisica {
 
     private String nome;
     private String cpf;
     private String rg;
     private Date dataNascimento;
+    private Pessoa pessoa;
 
     public PessoaFisica() {
-    }
-
-    public PessoaFisica(String email, ArrayList<Endereco> listaEndereco, ArrayList<Telefone> listaTelefone, String nome, String cpf, String rg, Date dataNascimento) {
-        super(email, listaEndereco, listaTelefone);
-        this.nome = nome;
-        this.cpf = cpf;
-        this.rg = rg;
-        this.dataNascimento = dataNascimento;
     }
 
     public String getNome() {
@@ -44,7 +36,7 @@ public class PessoaFisica extends Pessoa {
     public void setRg(String rg) {
         this.rg = rg;
     }
-
+    
     public Date getDataNascimento() {
         return dataNascimento;
     }
@@ -53,13 +45,21 @@ public class PessoaFisica extends Pessoa {
         this.dataNascimento = dataNascimento;
     }
 
+    public Pessoa getPessoa() {
+        return pessoa;
+    }
+
+    public void setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
+    }
+    
+    public void message(){
+        System.out.println("---------------------------------DADOS----------------------------------");
+    }
+    
     @Override
     public String toString() {
-        return "PessoaFisica{"
-                + "nome='" + nome + '\''
-                + ", cpf='" + cpf + '\''
-                + ", rg='" + rg + '\''
-                + ", dataNascimento=" + dataNascimento
-                + '}';
+        return "\nnome=" + nome + ", cpf=" + cpf + ", rg=" + rg + ", dataNascimento=" + dataNascimento + ", pessoa=" + pessoa + '}';
     }
+
 }

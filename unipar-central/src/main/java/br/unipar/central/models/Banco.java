@@ -1,19 +1,20 @@
 package br.unipar.central.models;
 
-import java.util.ArrayList;
+public class Banco {
 
-public class Banco extends AbstractBaseEntity {
-
+    private int id;
     private String nome;
-    private ArrayList<Agencia> listaAgencia;
-
-    public Banco(String nome, ArrayList<Agencia> listaAgencia) {
-        this.nome = nome;
-        this.listaAgencia = listaAgencia;
-    }
+    private String ra;
 
     public Banco() {
+    }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNome() {
@@ -24,19 +25,20 @@ public class Banco extends AbstractBaseEntity {
         this.nome = nome;
     }
 
-    public ArrayList<Agencia> getListaAgencia() {
-        return listaAgencia;
+    public String getRa() {
+        return ra;
     }
 
-    public void setListaAgencia(ArrayList<Agencia> listaAgencia) {
-        this.listaAgencia = listaAgencia;
+    public void setRa(String ra) {
+        this.ra = ra;
+    }
+
+    public void message(){
+        System.out.println("---------------------------------DADOS----------------------------------");
     }
 
     @Override
     public String toString() {
-        return "Banco{"
-                + ", nome='" + nome + "\n"
-                + ", listaAgencia=" + listaAgencia
-                + '}';
+        return "\nId=" + id + ", Nome=" + nome + ", Digito=" + ra ;
     }
 }

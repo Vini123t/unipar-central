@@ -1,32 +1,14 @@
 package br.unipar.central.models;
 
-import java.util.ArrayList;
-import java.util.Date;
+public class PessoaJuridica {
 
-public class PessoaJuridica extends Pessoa {
-    private Pessoa pessoa;
     private String razaoSocial;
-    private String cnpj;
+    private String nomeFantasia;
+    private String CNPJ;
     private String cnaePrincipal;
-    private String fantasia;
+    private Pessoa pessoa;
 
     public PessoaJuridica() {
-    }
-    
-  public PessoaJuridica(String email, ArrayList<Endereco> listaEndereco, ArrayList<Telefone> listaTelefone, String razaoSocial, String cnpj, String cnaePrincipal, String fantasia) {
-        super(email, listaEndereco, listaTelefone);
-        this.razaoSocial = razaoSocial;
-        this.cnpj = cnpj;
-        this.cnaePrincipal = cnaePrincipal;
-        this.fantasia = fantasia;
-    }
-
-    public Pessoa getPessoa() {
-        return pessoa;
-    }
-
-    public void setPessoa(Pessoa pessoa) {
-        this.pessoa = pessoa;
     }
 
     public String getRazaoSocial() {
@@ -37,12 +19,20 @@ public class PessoaJuridica extends Pessoa {
         this.razaoSocial = razaoSocial;
     }
 
-    public String getCnpj() {
-        return cnpj;
+    public String getNomeFantasia() {
+        return nomeFantasia;
     }
 
-    public void setCnpj(String cnpj) {
-        this.cnpj = cnpj;
+    public void setNomeFantasia(String nomeFantasia) {
+        this.nomeFantasia = nomeFantasia;
+    }
+
+    public String getCNPJ() {
+        return CNPJ;
+    }
+
+    public void setCNPJ(String CNPJ) {
+        this.CNPJ = CNPJ;
     }
 
     public String getCnaePrincipal() {
@@ -53,25 +43,21 @@ public class PessoaJuridica extends Pessoa {
         this.cnaePrincipal = cnaePrincipal;
     }
 
-    public String getFantasia() {
-        return fantasia;
+    public Pessoa getPessoa() {
+        return pessoa;
     }
 
-    public void setFantasia(String fantasia) {
-        this.fantasia = fantasia;
+    public void setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
     }
 
+    public void message(){
+        System.out.println("---------------------------------DADOS----------------------------------");
+    }
+    
     @Override
     public String toString() {
-        return "Dados da Pessoa Jurídica: \n"
-                + "Pessoa: " + pessoa + "\n"
-                + "Razão Social: " + razaoSocial + "\n"
-                + "CNPJ: " + cnpj + "\n "
-                + "CNAE Principal: " + cnaePrincipal + "\n"
-                + "Fantasia: " + fantasia + "\n";
+        return "\nRazaoSocial=" + razaoSocial + ", nomeFantasia=" + nomeFantasia + ", CNPJ=" + CNPJ + ", cnaePrincipal=" + cnaePrincipal + ", pessoa=" + pessoa + '}';
     }
-    
-    
-    
-    
+
 }

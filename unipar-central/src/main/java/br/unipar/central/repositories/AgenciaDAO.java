@@ -44,7 +44,7 @@ public class AgenciaDAO {
                 agencia.setRazaoSocial(rs.getString("razaosocial"));
                 agencia.setCnpj(rs.getString("cnpj"));
                 agencia.setRa(rs.getString("ra"));
-                retorno.setBanco(new BancoDAO().findById(rs.getInt("banco_id")));
+                agencia.setBancos(new BancoDAO().findById(rs.getInt("banco_id")));
 
                 retorno.add(agencia);
             }
@@ -90,7 +90,7 @@ public class AgenciaDAO {
                 retorno.setRazaoSocial(rs.getString("razaosocial"));
                 retorno.setCnpj(rs.getString("cnpj"));
                 retorno.setRa(rs.getString("ra"));
-                retorno.setBanco(new BancoDAO().findById(rs.getInt("banco_id")));
+                retorno.setBancos(new BancoDAO().findById(rs.getInt("banco_id")));
 
             }
         } finally {
@@ -125,7 +125,7 @@ public class AgenciaDAO {
             pstmt.setString(4, agencia.getRazaoSocial());
             pstmt.setString(5, agencia.getCnpj());
             pstmt.setString(6, agencia.getRa());
-            pstmt.setInt(7, agencia.getBanco().getId());
+            pstmt.setInt(7, agencia.getBancos().getId());
 
             pstmt.executeUpdate();
 
@@ -156,7 +156,7 @@ public class AgenciaDAO {
             pstmt.setString(3, agencia.getRazaoSocial());
             pstmt.setString(4, agencia.getCnpj());
             pstmt.setString(5, agencia.getRa());
-            pstmt.setInt(6, agencia.getBanco().getId());
+            pstmt.setInt(6, agencia.getBancos().getId());
             pstmt.setInt(7, agencia.getId());
 
             pstmt.executeUpdate();

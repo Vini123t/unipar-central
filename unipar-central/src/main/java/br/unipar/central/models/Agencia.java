@@ -11,7 +11,7 @@ public class Agencia extends AbstractBaseEntity {
     private String razaoSocial;
     private String cnpj;
     private String ra;
-    private Banco banco;
+    private Banco bancos;
     private ArrayList<Telefone> listaTelefone;
 
     public Agencia() {
@@ -24,7 +24,7 @@ public class Agencia extends AbstractBaseEntity {
         this.razaoSocial = razaoSocial;
         this.cnpj = cnpj;
         this.ra = ra;
-        this.banco = banco;
+        this.bancos = bancos;
         this.listaTelefone = listaTelefone;
     }
 
@@ -76,13 +76,6 @@ public class Agencia extends AbstractBaseEntity {
         this.ra = ra;
     }
 
-    public Banco getBanco() {
-        return banco;
-    }
-
-    public void setBanco(Banco banco) {
-        this.banco = banco;
-    }
 
     public ArrayList<Telefone> getListaTelefone() {
         return listaTelefone;
@@ -92,11 +85,20 @@ public class Agencia extends AbstractBaseEntity {
         this.listaTelefone = listaTelefone;
     }
 
-    @Override
-    public String toString() {
-        return "Agencia{" + "id=" + id + ", codigo=" + codigo + ", digito=" + digito + ", razaoSocial=" + razaoSocial + ", cnpj=" + cnpj + ", ra=" + ra + ", banco=" + banco + ", listaTelefone=" + listaTelefone + '}';
+    public Banco getBancos() {
+        return bancos;
     }
 
+    public void setBancos(Banco bancos) {
+        this.bancos = bancos;
+    }
+
+    @Override
+    public String toString() {
+        return "Agencia{" + "id=" + id + ", codigo=" + codigo + ", digito=" + digito + ", razaoSocial=" + razaoSocial + ", cnpj=" + cnpj + ", ra=" + ra + ", bancos=" + bancos + ", listaTelefone=" + listaTelefone + '}';
+    }
+
+   
    
     
 

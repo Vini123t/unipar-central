@@ -13,16 +13,7 @@ import br.unipar.central.executions.PessoaFisicaExecution;
 import br.unipar.central.executions.PessoaJuridicaExecution;
 import br.unipar.central.executions.TelefoneExecution;
 import br.unipar.central.executions.TransacaoExecution;
-import br.unipar.central.models.Estado;
-import br.unipar.central.models.Pais;
-import br.unipar.central.models.Pessoa;
-import br.unipar.central.repositories.EstadoDAO;
-import br.unipar.central.repositories.PaisDAO;
-import br.unipar.central.services.PaisService;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
-import javax.swing.JOptionPane;
 
 
 public class UniparCentral {
@@ -74,7 +65,7 @@ public class UniparCentral {
                         System.out.println("1 - INSERIR NOVA AGÊNCIA");
                         System.out.println("2 - VER TODAS AS AGÊNCIAS CADASTRADAS");
                         System.out.println("3 - VER A AGÊNCIA PELO ID");
-                        System.out.println("4 - DELETAR UMA AGÊNCIA PELO ID");
+                        System.out.println("4 - DELETAR UMAAGÊNCIA PELO ID");
                         System.out.println("5 - ATUALIZAR DADOS DA AGÊNCIA PELO ID");
                         System.out.println("6 - RETORNAR");
 
@@ -82,29 +73,29 @@ public class UniparCentral {
 
                         switch (opcao2) {
                             case 1:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
+                                
                                 agenciaExecution.Insert();
                                 break;
                             case 2:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
+                                       
                                 agenciaExecution.FindAll();
                                 break;
                             case 3:
                                 agenciaExecution.FindById();
                                 break;
                             case 4:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
+                                
                                 agenciaExecution.DeleteById();
                                 break;
                             case 5:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
+                               
                                 agenciaExecution.Update();
                                 break;
                             case 6:
                                 sair2 = true;
                                 break;
                             default:
-                                System.out.println("Opção inválida");
+                                System.out.println("Opção nválida");
                         }
                     }
                     break;
@@ -116,29 +107,27 @@ public class UniparCentral {
                         System.out.println("3 - VER O BANCO PELO ID");
                         System.out.println("4 - DELETAR UM BANCO PELO ID");
                         System.out.println("5 - ATUALIZAR DADOS DO BANCO PELO ID");
-                        System.out.println("6 - RETORNAR");
+                        System.out.println("6 - RETORNA");
 
                         int opcao2 = scanner.nextInt();
 
                         switch (opcao2) {
                             case 1:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
+                              
                                 bancoExecution.Insert();
                                 break;
                             case 2:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
+                           
                                 bancoExecution.FindAll();
                                 break;
                             case 3:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
+                               
                                 bancoExecution.FindById();
                                 break;
                             case 4:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
                                 bancoExecution.DeleteById();
                                 break;
                             case 5:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
                                 bancoExecution.Update();
                                 break;
                             case 6:
@@ -163,23 +152,18 @@ public class UniparCentral {
 
                         switch (opcao2) {
                             case 1:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
                                 cidadeExecution.Insert();
                                 break;
                             case 2:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
                                 cidadeExecution.FindAll();
                                 break;
                             case 3:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
                                 cidadeExecution.FindById();
                                 break;
                             case 4:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
                                 cidadeExecution.DeleteById();
                                 break;
                             case 5:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
                                 cidadeExecution.Update();
                                 break;
                             case 6:
@@ -204,23 +188,18 @@ public class UniparCentral {
 
                         switch (opcao2) {
                             case 1:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
                                 contaExecution.Insert();
                                 break;
                             case 2:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
                                 contaExecution.FindAll();
                                 break;
                             case 3:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
                                 contaExecution.FindById();
                                 break;
                             case 4:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
                                 contaExecution.DeleteById();
                                 break;
                             case 5:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
                                 contaExecution.Update();
                                 break;
                             case 6:
@@ -245,23 +224,19 @@ public class UniparCentral {
 
                         switch (opcao2) {
                             case 1:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
+                             
                                 enderecoExecution.Insert();
                                 break;
                             case 2:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
                                 enderecoExecution.FindAll();
                                 break;
                             case 3:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
                                 enderecoExecution.FindById();
                                 break;
                             case 4:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
                                 enderecoExecution.DeleteById();
                                 break;
                             case 5:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
                                 enderecoExecution.Update();
                                 break;
                             case 6:
@@ -286,23 +261,18 @@ public class UniparCentral {
 
                         switch (opcao2) {
                             case 1:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
                                 estadoExecution.Insert();
                                 break;
                             case 2:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
                                 estadoExecution.FindAll();
                                 break;
                             case 3:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
                                 estadoExecution.FindById();
                                 break;
                             case 4:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
                                 estadoExecution.DeleteById();
                                 break;
                             case 5:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
                                 estadoExecution.Update();
                                 break;
                             case 6:
@@ -327,23 +297,18 @@ public class UniparCentral {
 
                         switch (opcao2) {
                             case 1:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
                                 paisExecution.Insert();
                                 break;
                             case 2:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
                                 paisExecution.FindAll();
                                 break;
                             case 3:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
                                 paisExecution.FindById();
                                 break;
                             case 4:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
                                 paisExecution.DeleteById();
                                 break;
                             case 5:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
                                 paisExecution.Update();
                                 break;
                             case 6:
@@ -368,23 +333,18 @@ public class UniparCentral {
 
                         switch (opcao2) {
                             case 1:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
                                 pessoaExecution.Insert();
                                 break;
                             case 2:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
                                 pessoaExecution.FindAll();
                                 break;
                             case 3:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
                                 pessoaExecution.FindById();
                                 break;
                             case 4:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
                                 pessoaExecution.DeleteById();
                                 break;
                             case 5:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
                                 pessoaExecution.Update();
                                 break;
                             case 6:
@@ -409,23 +369,18 @@ public class UniparCentral {
 
                         switch (opcao2) {
                             case 1:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
                                 pessoaFisicaExecution.Insert();
                                 break;
                             case 2:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
                                 pessoaFisicaExecution.FindAll();
                                 break;
                             case 3:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
                                 pessoaFisicaExecution.FindById();
                                 break;
                             case 4:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
                                 pessoaFisicaExecution.DeleteById();
                                 break;
                             case 5:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
                                 pessoaFisicaExecution.Update();
                                 break;
                             case 6:
@@ -450,15 +405,12 @@ public class UniparCentral {
 
                         switch (opcao2) {
                             case 1:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
                                 pessoaJuridicaExecution.Insert();
                                 break;
                             case 2:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
                                 pessoaJuridicaExecution.FindAll();
                                 break;
                             case 3:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
                                 pessoaJuridicaExecution.FindById();
                                 break;
                             case 4:
@@ -466,7 +418,6 @@ public class UniparCentral {
                                 pessoaJuridicaExecution.DeleteById();
                                 break;
                             case 5:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
                                 pessoaJuridicaExecution.Update();
                                 break;
                             case 6:
@@ -491,23 +442,18 @@ public class UniparCentral {
 
                         switch (opcao2) {
                             case 1:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
                                 telefoneExecution.Insert();
                                 break;
                             case 2:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
                                 telefoneExecution.FindAll();
                                 break;
                             case 3:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
                                 telefoneExecution.FindById();
                                 break;
                             case 4:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
                                 telefoneExecution.DeleteById();
                                 break;
                             case 5:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
                                 telefoneExecution.Update();
                                 break;
                             case 6:
@@ -532,23 +478,18 @@ public class UniparCentral {
 
                         switch (opcao2) {
                             case 1:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
                                 transacaoExecution.Insert();
                                 break;
                             case 2:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
                                 transacaoExecution.FindAll();
                                 break;
                             case 3:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
                                 transacaoExecution.FindById();
                                 break;
                             case 4:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
                                 transacaoExecution.DeleteById();
                                 break;
                             case 5:
-                                System.out.println("-------------------------------------Isso pode demorar mais do que o normal!-------------------------------------");
                                 transacaoExecution.Update();
                                 break;
                             case 6:

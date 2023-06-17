@@ -1,7 +1,7 @@
 package br.unipar.central.executions;
 
-import br.unipar.central.models.EstadoPOJO;
-import br.unipar.central.models.PaisPOJO;
+import br.unipar.central.models.Estado;
+import br.unipar.central.models.Pais;
 import br.unipar.central.services.EstadoService;
 import java.util.List;
 import java.util.Scanner;
@@ -10,7 +10,7 @@ public class EstadoExecution {
 
     public String Insert() {
         try {
-            EstadoPOJO estado = new EstadoPOJO();
+            Estado estado = new Estado();
             Scanner scanner = new Scanner(System.in);
             
             System.out.println("Informe o id de estado: ");
@@ -27,7 +27,7 @@ public class EstadoExecution {
             estado.setRa(scanner.nextLine());
             
             System.out.println("Informe o id de país atrelado a esse estado: ");
-            PaisPOJO paisPOJO = new PaisPOJO();
+            Pais paisPOJO = new Pais();
             paisPOJO.setId(scanner.nextInt());
             estado.setPais(paisPOJO);
 
@@ -46,9 +46,8 @@ public class EstadoExecution {
     public String FindAll() {
         try {
             EstadoService estadoService = new EstadoService();
-            List<EstadoPOJO> procurarPorEstado = estadoService.findAll();
-            EstadoPOJO estadoPOJO = new EstadoPOJO();
-            estadoPOJO.message();
+            List<Estado> procurarPorEstado = estadoService.findAll();
+            Estado estadoPOJO = new Estado();
             String msg = "Todos os itens encontrados " + procurarPorEstado.toString();
             System.out.println(msg);
             return msg;
@@ -62,14 +61,13 @@ public class EstadoExecution {
     public String FindById() {
         try {
             EstadoService estadoService = new EstadoService();
-            EstadoPOJO estado = new EstadoPOJO();
+            Estado estado = new Estado();
             Scanner scanner = new Scanner(System.in);
 
             System.out.println("Informe o ID do estado para realizar a busca: ");
             int id = scanner.nextInt();
             estado.setId(id);
-            EstadoPOJO estadoPOJO = new EstadoPOJO();
-            estadoPOJO.message();
+            Estado estadoPOJO = new Estado();
             String msg = "Item encontrado: " + estadoService.findById(estado.getId());
             System.out.println(msg);
             return msg;
@@ -85,7 +83,7 @@ public class EstadoExecution {
             Scanner scanner = new Scanner(System.in);
 
             EstadoService estadoService = new EstadoService();
-            EstadoPOJO estado = new EstadoPOJO();
+            Estado estado = new Estado();
 
             System.out.println("Informe o ID de estado: ");
             estado.setId(scanner.nextInt());
@@ -102,7 +100,7 @@ public class EstadoExecution {
 
     public String Update() {
         try {
-            EstadoPOJO estado = new EstadoPOJO();
+            Estado estado = new Estado();
             Scanner scanner = new Scanner(System.in);
             
             System.out.println("Informe o id de estado: ");
@@ -119,7 +117,7 @@ public class EstadoExecution {
             estado.setRa(scanner.nextLine());
             
             System.out.println("Informe o id de país atrelado a esse estado: ");
-            PaisPOJO paisPOJO = new PaisPOJO();
+            Pais paisPOJO = new Pais();
             paisPOJO.setId(scanner.nextInt());
             estado.setPais(paisPOJO);
             

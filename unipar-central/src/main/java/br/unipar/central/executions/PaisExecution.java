@@ -1,6 +1,6 @@
 package br.unipar.central.executions;
 
-import br.unipar.central.models.PaisPOJO;
+import br.unipar.central.models.Pais;
 import br.unipar.central.services.PaisService;
 import java.util.List;
 import java.util.Scanner;
@@ -9,7 +9,7 @@ public class PaisExecution {
 
     public String Insert() {
         try {
-            PaisPOJO pais = new PaisPOJO();
+            Pais pais = new Pais();
             Scanner scanner = new Scanner(System.in);
 
             System.out.println("Informe o id de país: ");
@@ -40,9 +40,8 @@ public class PaisExecution {
     public String FindAll() {
         try {
             PaisService paisService = new PaisService();
-            List<PaisPOJO> procurarPorPais = paisService.findAll();
-            PaisPOJO paisPOJO = new PaisPOJO();
-            paisPOJO.message();
+            List<Pais> procurarPorPais = paisService.findAll();
+            Pais paisPOJO = new Pais();
             String msg = "Todos os itens encontrados " + procurarPorPais.toString();
             System.out.println(msg);
             return msg;
@@ -56,14 +55,13 @@ public class PaisExecution {
     public String FindById() {
         try {
             PaisService paisService = new PaisService();
-            PaisPOJO pais = new PaisPOJO();
+            Pais pais = new Pais();
             Scanner scanner = new Scanner(System.in);
 
             System.out.println("Informe o ID de país para realizar a busca: ");
             int id = scanner.nextInt();
             pais.setId(id);
-            PaisPOJO paisPOJO = new PaisPOJO();
-            paisPOJO.message();
+            Pais paisPOJO = new Pais();
             String msg = "Item encontrado: " + paisService.findById(pais.getId());
             System.out.println(msg);
             return msg;
@@ -79,7 +77,7 @@ public class PaisExecution {
             Scanner scanner = new Scanner(System.in);
 
             PaisService paisService = new PaisService();
-            PaisPOJO pais = new PaisPOJO();
+            Pais pais = new Pais();
 
             System.out.println("Informe o ID de pais: ");
             pais.setId(scanner.nextInt());
@@ -96,7 +94,7 @@ public class PaisExecution {
 
     public String Update() {
         try {
-            PaisPOJO pais = new PaisPOJO();
+            Pais pais = new Pais();
             Scanner scanner = new Scanner(System.in);
 
             System.out.println("Informe o id de pais: ");

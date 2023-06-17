@@ -76,8 +76,8 @@ public class ContaExecution {
     public String FindAll() {
         try {
             ContaService contaService = new ContaService();
-            List<ContaPOJO> procurarPorConta = contaService.findAll();
-            ContaPOJO contaPOJO = new ContaPOJO();
+            List<Conta> procurarPorConta = contaService.findAll();
+            Conta contaPOJO = new Conta();
             contaPOJO.message();
             String msg = "Todos os itens encontrados " + procurarPorConta.toString();
             System.out.println(msg);
@@ -92,13 +92,13 @@ public class ContaExecution {
     public String FindById() {
         try {
             ContaService contaService = new ContaService();
-            ContaPOJO conta = new ContaPOJO();
+            Conta conta = new Conta();
             Scanner scanner = new Scanner(System.in);
 
             System.out.println("Informe o ID da conta para realizar a busca: ");
             int id = scanner.nextInt();
             conta.setId(id);
-            ContaPOJO contaPOJO = new ContaPOJO();
+            Conta contaPOJO = new Conta();
             contaPOJO.message();
             String msg = "Item encontrado: " + contaService.findById(conta.getId());
             System.out.println(msg);
@@ -115,7 +115,7 @@ public class ContaExecution {
             Scanner scanner = new Scanner(System.in);
 
             ContaService contaService = new ContaService();
-            ContaPOJO conta = new ContaPOJO();
+            Conta conta = new Conta();
 
             System.out.println("Informe o ID de conta: ");
             conta.setId(scanner.nextInt());
@@ -132,7 +132,7 @@ public class ContaExecution {
 
     public String Update() {
         try {
-            ContaPOJO conta = new ContaPOJO();
+            Conta conta = new Conta();
             Scanner scanner = new Scanner(System.in);
             System.out.println("Informe o id de conta: ");
             conta.setId(scanner.nextInt());
@@ -174,12 +174,12 @@ public class ContaExecution {
             conta.setRa(scanner.nextLine());
 
             System.out.println("Informe o id da agencia atrelada a essa conta: ");
-            AgenciaPOJO agenciaPOJO = new AgenciaPOJO();
+            Agencia agenciaPOJO = new Agencia();
             agenciaPOJO.setId(scanner.nextInt());
             conta.setAgencia(agenciaPOJO);
 
             System.out.println("Informe o id de pessoa atrelada a essa conta: ");
-            PessoaPOJO pessoaPOJO = new PessoaPOJO();
+            Pessoa pessoaPOJO = new Pessoa();
             pessoaPOJO.setId(scanner.nextInt());
             conta.setPessoa(pessoaPOJO);
             ContaService contaService = new ContaService();

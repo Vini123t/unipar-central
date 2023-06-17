@@ -25,4 +25,6 @@ public enum TipoTransacaoEnum {
         }
         throw new IllegalArgumentException("Código inválido!");
     } 
+}
+
 

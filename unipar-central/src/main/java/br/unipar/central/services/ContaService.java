@@ -1,6 +1,5 @@
 package br.unipar.central.services;
 
-import br.unipar.central.DAO.ContaDAO;
 import br.unipar.central.exceptions.CampoNaoInformadoException;
 import br.unipar.central.exceptions.EntidadeNaoInformadaException;
 import br.unipar.central.exceptions.SaldoZeradoException;

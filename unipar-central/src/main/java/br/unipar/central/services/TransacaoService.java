@@ -8,6 +8,7 @@ import br.unipar.central.exceptions.TamanhoCampoInvalidoException;
 import br.unipar.central.models.Transacao;
 import br.unipar.central.repositories.TransacaoDAO;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 public class TransacaoService {
@@ -29,9 +30,9 @@ public class TransacaoService {
             throw new CampoNaoInformadoException("Valor");
         }
         
-        if(transacao.getDataHora() == null ||
-                new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(transacao.getDataHora()).isBlank() ||
-                new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(transacao.getDataHora()).isEmpty()){
+        if(transacao.getDatahora()== null ||
+                new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(transacao.getDatahora()).isBlank() ||
+                new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(transacao.getDatahora()).isEmpty()){
             throw new CampoNaoInformadoException("DataHora");
         }
     }

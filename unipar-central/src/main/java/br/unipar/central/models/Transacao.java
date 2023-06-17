@@ -1,31 +1,38 @@
 package br.unipar.central.models;
 
-import java.util.Date;
+
+import br.unipar.central.enums.TipoTransacaoEnum;
+import java.sql.Timestamp;
+
+
+
 
 public class Transacao extends AbstractBaseEntity {
-
-    private Date datahora;
+    
+ private int id;
+    private Timestamp datahora;
     private double valor;
-    private int tipo;
-    private Conta ContaOrigem;
-    private Conta ContaDestino;
+    private TipoTransacaoEnum tipo;
+  
+    private int conta_origem;
+    private int conta_destino;
 
     public Transacao() {
     }
 
-    public Transacao(Date datahora, double valor, int tipo, Conta ContaOrigem, Conta ContaDestino) {
-        this.datahora = datahora;
-        this.valor = valor;
-        this.tipo = tipo;
-        this.ContaOrigem = ContaOrigem;
-        this.ContaDestino = ContaDestino;
+    public int getId() {
+        return id;
     }
 
-    public Date getDatahora() {
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Timestamp getDatahora() {
         return datahora;
     }
 
-    public void setDatahora(Date datahora) {
+    public void setDatahora(Timestamp datahora) {
         this.datahora = datahora;
     }
 
@@ -37,37 +44,39 @@ public class Transacao extends AbstractBaseEntity {
         this.valor = valor;
     }
 
-    public int getTipo() {
+    public TipoTransacaoEnum getTipo() {
         return tipo;
     }
 
-    public void setTipo(int tipo) {
+    public void setTipo(TipoTransacaoEnum tipo) {
         this.tipo = tipo;
     }
 
-    public Conta getContaOrigem() {
-        return ContaOrigem;
+    public int getConta_origem() {
+        return conta_origem;
     }
 
-    public void setContaOrigem(Conta ContaOrigem) {
-        this.ContaOrigem = ContaOrigem;
+    public void setConta_origem(int conta_origem) {
+        this.conta_origem = conta_origem;
     }
 
-    public Conta getContaDestino() {
-        return ContaDestino;
+    public int getConta_destino() {
+        return conta_destino;
     }
 
-    public void setContaDestino(Conta ContaDestino) {
-        this.ContaDestino = ContaDestino;
+    public void setConta_destino(int conta_destino) {
+        this.conta_destino = conta_destino;
     }
 
     @Override
     public String toString() {
-        return "Transacao{"
-                + "datahora=" + datahora + "\n"
-                + ", valor=" + valor + "\n"
-                + ", tipo=" + tipo + "\n"
-                + ", ContaOrigem=" + ContaOrigem + "\n"
-                + ", ContaDestino=" + ContaDestino + '}';
+        return "Transacao{" + "id=" + id + ", datahora=" + datahora + ", valor=" + valor + ", tipo=" + tipo + ", conta_origem=" + conta_origem + ", conta_destino=" + conta_destino + '}';
     }
+
+   
+    
+    
+
 }
+    
+

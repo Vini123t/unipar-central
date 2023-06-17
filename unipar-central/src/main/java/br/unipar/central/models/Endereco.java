@@ -97,7 +97,9 @@ public class Endereco extends AbstractBaseEntity {
         return "Endereco{" + "id=" + id + ", logradouro=" + logradouro + ", numero=" + numero + ", bairro=" + bairro + ", cep=" + cep + ", complemento=" + complemento + ", cidade=" + cidade + ", pessoa=" + pessoa + '}';
     }
 
-    
+    public void message(){
+        System.out.println("-------------------------------------------------------------------");
+    }
     
 
 }

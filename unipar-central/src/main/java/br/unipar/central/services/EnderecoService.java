@@ -5,6 +5,7 @@ import br.unipar.central.exceptions.CampoNaoInformadoException;
 import br.unipar.central.exceptions.EntidadeNaoInformadaException;
 import br.unipar.central.exceptions.TamanhoCampoInvalidoException;
 import br.unipar.central.models.Endereco;
+import br.unipar.central.repositories.EnderecoDAO;
 import java.sql.SQLException;
 import java.util.List;
 

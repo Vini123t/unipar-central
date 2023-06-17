@@ -7,6 +7,7 @@ import br.unipar.central.exceptions.SaldoZeradoException;
 import br.unipar.central.exceptions.TamanhoCampoInvalidoException;
 import br.unipar.central.exceptions.ValorInvalidoException;
 import br.unipar.central.models.Conta;
+import br.unipar.central.repositories.ContaDAO;
 
 import java.sql.SQLException;
 import java.util.List;

@@ -2,6 +2,8 @@ package br.unipar.central.repositories;
 
 
 
+import br.unipar.central.models.*;
+import br.unipar.central.repositories.*;
 import br.unipar.central.models.Agencia;
 import br.unipar.central.repositories.BancoDAO;
 import br.unipar.central.utils.DatabaseUtils;
@@ -44,8 +46,7 @@ public class AgenciaDAO {
                 agencia.setRazaoSocial(rs.getString("razaosocial"));
                 agencia.setCnpj(rs.getString("cnpj"));
                 agencia.setRa(rs.getString("ra"));
-                agencia.setBancos(new BancoDAO().findById(rs.getInt("banco_id")));
-
+                agencia.setBanco(new BancoDAO().findById(rs.getInt("banco_id")));
                 retorno.add(agencia);
             }
         } finally {
@@ -90,7 +91,7 @@ public class AgenciaDAO {
                 retorno.setRazaoSocial(rs.getString("razaosocial"));
                 retorno.setCnpj(rs.getString("cnpj"));
                 retorno.setRa(rs.getString("ra"));
-                retorno.setBancos(new BancoDAO().findById(rs.getInt("banco_id")));
+                retorno.setBanco(new BancoDAO().findById(rs.getInt("banco_id")));
 
             }
         } finally {

@@ -13,14 +13,6 @@ public class PessoaJuridica extends Pessoa {
     public PessoaJuridica() {
     }
 
-    public PessoaJuridica(Pessoa pessoa, String razaoSocial, String cnpj, String cnaePrincipal, String fantasia) {
-        this.pessoa = pessoa;
-        this.razaoSocial = razaoSocial;
-        this.cnpj = cnpj;
-        this.cnaePrincipal = cnaePrincipal;
-        this.fantasia = fantasia;
-    }
-
     public PessoaJuridica(Pessoa pessoa, String razaoSocial, String cnpj, String cnaePrincipal, String fantasia, int id, String email, ArrayList<Endereco> listaEndereco, ArrayList<Telefone> listaTelefone) {
         super(id, email, listaEndereco, listaTelefone);
         this.pessoa = pessoa;

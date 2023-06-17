@@ -5,6 +5,7 @@ package br.unipar.central.services;
 import br.unipar.central.exceptions.CampoNaoInformadoException;
 import br.unipar.central.exceptions.EntidadeNaoInformadaException;
 import br.unipar.central.exceptions.TamanhoCampoInvalidoException;
+import br.unipar.central.exceptions.ValorInvalidoException;
 import br.unipar.central.models.PessoaJuridica;
 import br.unipar.central.repositories.PessoaJuridicaDAO;
 import java.sql.SQLException;
@@ -13,57 +14,57 @@ import java.util.List;
 public class PessoaJuridicaService {
 
     public void validar(PessoaJuridica PJPJ) throws
-            EntidadeOuClasseEmBrancoOuNaoInformadaException,
-            CampoEspecificoNaoInformadoException,
-            TamanhoMaximoDoCampoExcedidoException,
+            EntidadeNaoInformadaException,
+            CampoNaoInformadoException,
+            TamanhoCampoInvalidoException,
             ValorInvalidoException {
 
         if (PJPJ == null) {
-            throw new EntidadeOuClasseEmBrancoOuNaoInformadaException("pais");
+            throw new EntidadeNaoInformadaException("pais");
         }
 
         if (PJPJ.getRazaoSocial() == null
                 || PJPJ.getRazaoSocial().isEmpty()
                 || PJPJ.getRazaoSocial().isBlank()) {
-            throw new CampoEspecificoNaoInformadoException("razão social");
+            throw new CampoNaoInformadoException("razão social");
         }
 
         if ((PJPJ.getRazaoSocial().length() > 60)) {
-            throw new TamanhoMaximoDoCampoExcedidoException("razão social", 60);
+            throw new TamanhoCampoInvalidoException("razão social", 60);
         }
         
         if (PJPJ.getCnpj()== null
                 || PJPJ.getCnpj().isEmpty()
                 || PJPJ.getCnpj().isBlank()) {
-            throw new CampoEspecificoNaoInformadoException("cpf");
+            throw new CampoNaoInformadoException("cpf");
         }
 
-        if ((PJPJ.getCNPJ().length() > 18)) {
-            throw new TamanhoMaximoDoCampoExcedidoException("cpf", 18);
+        if ((PJPJ.getCnpj().length() > 18)) {
+            throw new TamanhoCampoInvalidoException("cpf", 18);
         }
 
         if (PJPJ.getFantasia() == null
                 || PJPJ.getFantasia().isEmpty()
                 || PJPJ.getFantasia().isBlank()) {
-            throw new CampoEspecificoNaoInformadoException("nome fantasia");
+            throw new CampoNaoInformadoException("nome fantasia");
         }
 
         if ((PJPJ.getFantasia().length() > 60)) {
-            throw new TamanhoMaximoDoCampoExcedidoException("nome fantasia", 60);
+            throw new TamanhoCampoInvalidoException("nome fantasia", 60);
         }
 
         if (PJPJ.getCnaePrincipal() == null
                 || PJPJ.getCnaePrincipal().isEmpty()
                 || PJPJ.getCnaePrincipal().isBlank()) {
-            throw new CampoEspecificoNaoInformadoException("cnae");
+            throw new CampoNaoInformadoException("cnae");
         }
 
         if ((PJPJ.getCnaePrincipal().length() > 100)) {
-            throw new TamanhoMaximoDoCampoExcedidoException("cnae", 100);
+            throw new TamanhoCampoInvalidoException("cnae", 100);
         }
 
         if (PJPJ.getPessoa() == null) {
-            throw new EntidadeOuClasseEmBrancoOuNaoInformadaException("pessoa");
+            throw new EntidadeNaoInformadaException("pessoa");
         }
 
     }
@@ -76,10 +77,10 @@ public class PessoaJuridicaService {
         return resultado;
     }
 
-    public PessoaJuridica findById(String cnpj) throws SQLException, TamanhoMaximoDoCampoExcedidoException, Exception {
+    public PessoaJuridica findById(String cnpj) throws SQLException, TamanhoCampoInvalidoException, Exception {
 
         if (cnpj.length() <= 0) {
-            throw new TamanhoMaximoDoCampoExcedidoException("cnpj", 1);
+            throw new TamanhoCampoInvalidoException("cnpj", 1);
         }
 
         PessoaJuridicaDAO pessoaJuridicaDAO = new PessoaJuridicaDAO();
@@ -92,13 +93,13 @@ public class PessoaJuridicaService {
         return pessoaJuridicaDAO.findById(cnpj);
     }
 
-    public void insert(PessoaJuridica pessoaJuridica) throws SQLException, EntidadeOuClasseEmBrancoOuNaoInformadaException, CampoEspecificoNaoInformadoException, TamanhoMaximoDoCampoExcedidoException, ValorInvalidoException {
+    public void insert(PessoaJuridica pessoaJuridica) throws SQLException, EntidadeNaoInformadaException, CampoNaoInformadoException, TamanhoCampoInvalidoException, ValorInvalidoException {
         validar(pessoaJuridica);
         PessoaJuridicaDAO pessoaJuridicaDAO = new PessoaJuridicaDAO();
         pessoaJuridicaDAO.insert(pessoaJuridica);
     }
 
-    public void update(PessoaJuridica pessoaJuridica) throws SQLException, EntidadeOuClasseEmBrancoOuNaoInformadaException, CampoEspecificoNaoInformadoException, TamanhoMaximoDoCampoExcedidoException, ValorInvalidoException {
+    public void update(PessoaJuridica pessoaJuridica) throws SQLException, EntidadeNaoInformadaException, CampoNaoInformadoException, TamanhoCampoInvalidoException, ValorInvalidoException {
         validar(pessoaJuridica);
         PessoaJuridicaDAO pessoaJuridicaDAO = new PessoaJuridicaDAO();
         pessoaJuridicaDAO.update(pessoaJuridica);

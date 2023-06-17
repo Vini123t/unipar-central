@@ -41,7 +41,7 @@ public class PessoaJuridicaExecution {
         try {
             PessoaJuridicaService pessoaJuridicaService = new PessoaJuridicaService();
             List<PessoaJuridica> procurarPorPessoaJuridica = pessoaJuridicaService.findAll();
-            PessoaJuridica pessoaJuridicaPOJO = new PessoaJuridica();
+            PessoaJuridica pessoaJuridica = new PessoaJuridica();
             String msg = "Todos os itens encontrados " + procurarPorPessoaJuridica.toString();
             System.out.println(msg);
             return msg;
@@ -82,7 +82,7 @@ public class PessoaJuridicaExecution {
 
             System.out.println("Informe o CNPJ de pessoaJuridica: ");
             pessoaJuridica.setCnpj(scanner.nextLine());
-            pessoaJuridicaService.deleteByCnpj(pessoaJuridica.getCnpj());
+            pessoaJuridicaService.delete(pessoaJuridica.getCnpj());
             String msg = "Item deletado com sucesso";
             System.out.println(msg);
             return msg;

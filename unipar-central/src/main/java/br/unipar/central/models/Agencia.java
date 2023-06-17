@@ -15,10 +15,11 @@ public class Agencia extends AbstractBaseEntity {
     private Banco bancos;
     private ArrayList<Telefone> listaTelefone;
     private Banco banco;
-    
+
     public Agencia() {
-        
+
     }
+
     public Agencia(int id, String codigo, String digito, String razaoSocial, String cnpj, String ra, Banco bancos, Banco banco) {
         this.id = id;
         this.codigo = codigo;
@@ -29,8 +30,6 @@ public class Agencia extends AbstractBaseEntity {
         this.bancos = bancos;
         this.banco = banco;
     }
-
-    
 
     public int getId() {
         return id;
@@ -98,6 +97,10 @@ public class Agencia extends AbstractBaseEntity {
 
     public void setBanco(Banco banco) {
         this.banco = banco;
+    }
+
+    public void message() {
+        System.out.println("-------------------------------------------------------------------");
     }
 
 }

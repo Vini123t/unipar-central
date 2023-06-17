@@ -2,7 +2,6 @@ package br.unipar.central.models;
 
 import br.unipar.central.enums.TipoContaEnum;
 
-
 public class Conta extends AbstractBaseEntity {
 
     private String numero;
@@ -83,5 +82,9 @@ public class Conta extends AbstractBaseEntity {
                 + ", agencia=" + agencia
                 + ", pessoa=" + pessoa
                 + '}';
+    }
+
+    public void message() {
+        System.out.println("-------------------------------------------------------------------");
     }
 }

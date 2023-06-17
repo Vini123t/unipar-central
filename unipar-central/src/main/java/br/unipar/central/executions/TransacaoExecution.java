@@ -1,7 +1,7 @@
 package br.unipar.central.executions;
 
 import br.unipar.central.enums.TipoTransacaoEnum;
-import br.unipar.central.models.TransacaoPOJO;
+import br.unipar.central.models.Transacao;
 import br.unipar.central.services.TransacaoService;
 import java.sql.Timestamp;
 import java.util.Calendar;
@@ -12,7 +12,7 @@ public class TransacaoExecution {
 
     public String Insert() {
         try {
-            TransacaoPOJO transacao = new TransacaoPOJO();
+            Transacao transacao = new Transacao();
             Scanner scanner = new Scanner(System.in);
             System.out.println("Informe o id de transação: ");
             transacao.setId(scanner.nextInt());

@@ -2,16 +2,27 @@ package br.unipar.central.enums;
 
 public enum TipoTransacaoEnum {
 
-    PIX(1, "Transferência PIX"),
-    TED(2, "Transferência Eletrônica Disponível TED"),
-    SAQUE(3, "Saque"),
-    DEPOSITO(4, "Depósito");
+    DEBITO(1),
+    CREDITO(2),
+    PIX(3),
+    OUTROS(0);
 
-    private int id;
-    private String descricao;
+    private final int numero;
 
-    TipoTransacaoEnum(int id, String descricao) {
-        this.id = id;
-        this.descricao = descricao;
+    private TipoTransacaoEnum(int numero) {
+        this.numero = numero;
     }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public static TipoTransacaoEnum paraEnum(int codigo) {
+        for (TipoTransacaoEnum tipo : TipoTransacaoEnum.values()) {
+            if (tipo.getNumero()== codigo) {
+                return tipo;
+            }
+        }
+        throw new IllegalArgumentException("Código inválido!");
+    } 
 }

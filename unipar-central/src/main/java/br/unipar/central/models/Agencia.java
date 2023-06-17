@@ -11,13 +11,13 @@ public class Agencia extends AbstractBaseEntity {
     private String razaoSocial;
     private String cnpj;
     private String ra;
-    private BancoDAO banco;
+    private Banco banco;
     private ArrayList<Telefone> listaTelefone;
 
     public Agencia() {
     }
 
-    public Agencia(int id, String codigo, String digito, String razaoSocial, String cnpj, String ra, BancoDAO banco, ArrayList<Telefone> listaTelefone) {
+    public Agencia(int id, String codigo, String digito, String razaoSocial, String cnpj, String ra, Banco banco, ArrayList<Telefone> listaTelefone) {
         this.id = id;
         this.codigo = codigo;
         this.digito = digito;
@@ -76,11 +76,11 @@ public class Agencia extends AbstractBaseEntity {
         this.ra = ra;
     }
 
-    public BancoDAO getBanco() {
+    public Banco getBanco() {
         return banco;
     }
 
-    public void setBanco(BancoDAO banco) {
+    public void setBanco(Banco banco) {
         this.banco = banco;
     }
 
@@ -96,7 +96,8 @@ public class Agencia extends AbstractBaseEntity {
     public String toString() {
         return "Agencia{" + "id=" + id + ", codigo=" + codigo + ", digito=" + digito + ", razaoSocial=" + razaoSocial + ", cnpj=" + cnpj + ", ra=" + ra + ", banco=" + banco + ", listaTelefone=" + listaTelefone + '}';
     }
-    
+
+   
     
 
     

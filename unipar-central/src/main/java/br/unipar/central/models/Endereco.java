@@ -1,25 +1,39 @@
 package br.unipar.central.models;
 
-public class Endereco {
-
+public class Endereco extends AbstractBaseEntity {
+    
+    private int id;
     private String logradouro;
     private String numero;
     private String bairro;
     private String cep;
     private String complemento;
     private Cidade cidade;
+    private Pessoa pessoa;
+
+    
 
     public Endereco() {
 
     }
 
-    public Endereco(String logradouro, String numero, String bairro, String cep, String complemento, Cidade cidade) {
+    public Endereco(int id, String logradouro, String numero, String bairro, String cep, String complemento, Cidade cidade, Pessoa pessoa) {
+        this.id = id;
         this.logradouro = logradouro;
         this.numero = numero;
         this.bairro = bairro;
         this.cep = cep;
         this.complemento = complemento;
         this.cidade = cidade;
+        this.pessoa = pessoa;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getLogradouro() {
@@ -70,15 +84,20 @@ public class Endereco {
         this.cidade = cidade;
     }
 
+    public Pessoa getPessoa() {
+        return pessoa;
+    }
+
+    public void setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
+    }
+
     @Override
     public String toString() {
-        return "Endereco{"
-                + ", logradouro='" + logradouro + "\n"
-                + ", numero='" + numero + "\n"
-                + ", bairro='" + bairro + "\n"
-                + ", cep='" + cep + "\n"
-                + ", complemento='" + complemento + "\n"
-                + ", cidade=" + cidade + "\n"
-                + '}';
+        return "Endereco{" + "id=" + id + ", logradouro=" + logradouro + ", numero=" + numero + ", bairro=" + bairro + ", cep=" + cep + ", complemento=" + complemento + ", cidade=" + cidade + ", pessoa=" + pessoa + '}';
     }
+
+    
+    
+
 }

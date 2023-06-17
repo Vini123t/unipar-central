@@ -2,28 +2,38 @@
 package br.unipar.central.enums;
 
 public enum OperadoraEnum {
-    VIVO(15, "Vivo"),
-    CLARO(21, "Claro"),
-    TIM(41, "Tim"),
-    ALGAR(12, "Algar"),
-    SERCOMTEL(43, "Sercomtel"),
-    GENTE(10, "GenteTelecom"),
-    TRANSIT(17, "TransitTelecom"),
-    NEOTELECOM (64, "NeoTelecom");
+    
+    TIM(1),
+    CLARO(2),
+    VIVO(3),
+    OI(4),
+    CORREIOS(5),
+    LARICELL(6),
+    TESLA(7),
+    IPHONE(8),
+    OUTROS(9),
+    VALOR44(44),
+    VALOR21(21),
+    VALOR45(45),
+    VALOR11(11),
+    VALOR34(34);
+    
 
-    private int codigo;
-    private String descrição;
+    private final int numero;
 
-    OperadoraEnum(int codigo, String descrição) {
-        this.codigo = codigo;
-        this.descrição = descrição;
+    private OperadoraEnum(int numero) {
+        this.numero = numero;
     }
 
-    public int getCodigo() {
-        return codigo;
+    public int getNumero() {
+        return numero;
     }
-
-    public String getDescrição() {
-        return descrição;
+    public static OperadoraEnum paraEnum(int codigo) {
+        for (OperadoraEnum tipo : OperadoraEnum.values()) {
+            if (tipo.getNumero()== codigo) {
+                return tipo;
+            }
+        }
+        throw new IllegalArgumentException("Código inválido!");
     }
 }

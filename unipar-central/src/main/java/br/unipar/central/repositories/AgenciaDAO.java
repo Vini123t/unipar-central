@@ -44,7 +44,7 @@ public class AgenciaDAO {
                 agencia.setRazaoSocial(rs.getString("razaosocial"));
                 agencia.setCnpj(rs.getString("cnpj"));
                 agencia.setRa(rs.getString("ra"));
-                retorno.setBanco(new BancoDAO().findById(rs.getInt("banco_id")));
+                retorno.setBancos(new BancoDAO().findById(rs.getInt("banco_id")));
 
                 retorno.add(agencia);
             }

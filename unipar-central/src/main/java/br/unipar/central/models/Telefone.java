@@ -6,13 +6,33 @@ public class Telefone extends AbstractBaseEntity {
 
     private String numero;
     private OperadoraEnum operadoraEnum;
-
+    private Agencia agencia;
+    private Pessoa pessoa;
     public Telefone() {
     }
 
-    public Telefone(String numero, OperadoraEnum operadoraEnum) {
+    public Telefone(String numero, OperadoraEnum operadoraEnum, Agencia agencia, Pessoa pessoa) {
         this.numero = numero;
         this.operadoraEnum = operadoraEnum;
+        this.agencia = agencia;
+        this.pessoa = pessoa;
+    }
+    
+    
+    public Agencia getAgencia() {
+        return agencia;
+    }
+
+    public void setAgencia(Agencia agencia) {
+        this.agencia = agencia;
+    }
+
+    public Pessoa getPessoa() {
+        return pessoa;
+    }
+
+    public void setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
     }
 
     public String getNumero() {

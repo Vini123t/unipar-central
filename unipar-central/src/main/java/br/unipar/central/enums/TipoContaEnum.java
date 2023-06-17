@@ -2,24 +2,26 @@
 package br.unipar.central.enums;
 
 public enum TipoContaEnum {
-    POUPANCA("Poupança", 1),
-    CORRENTE("Corrente", 2),
-    CONTASALARIO("Conta Salário", 3);
+    CORRENTE(1),
+    POUPANCA(2),
+    SALARIO(3);
 
-    private String descricao;
-    private int id;
+    private final int numero;
 
-    TipoContaEnum(String descricao, int id) {
-        this.descricao = descricao;
-        this.id = id;
+    private TipoContaEnum(int numero) {
+        this.numero = numero;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public int getNumero() {
+        return numero;
     }
-
-    public int getId() {
-        return id;
-    }
+    public static TipoContaEnum paraEnum(int codigo) {
+        for (TipoContaEnum tipo : TipoContaEnum.values()) {
+            if (tipo.getNumero() == codigo) {
+                return tipo;
+            }
+        }
+        throw new IllegalArgumentException("Código inválido!");
+    } 
 }
 

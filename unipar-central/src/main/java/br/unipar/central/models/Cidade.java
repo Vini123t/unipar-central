@@ -36,4 +36,7 @@ public class Cidade extends AbstractBaseEntity  {
                 + ", estado=" + estado + "\n"
                 + '}';
     }
+    public void message(){
+        System.out.println("-------------------------------------------------------------------");
+    }
 }

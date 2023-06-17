@@ -51,6 +51,8 @@ public class Banco extends AbstractBaseEntity {
     public String toString() {
         return "Banco{" + "id=" + id + ", nome=" + nome + ", listaAgencia=" + listaAgencia + '}';
     }
-    
+    public void message(){
+        System.out.println("---------------------------------DADOS----------------------------------");
+    }
 
 }

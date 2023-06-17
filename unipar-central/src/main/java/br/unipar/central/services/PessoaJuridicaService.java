@@ -11,73 +11,103 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class PessoaJuridicaService {
-    private final PessoaJuridicaDAO pessoaJuridicaDAO;
 
-    public PessoaJuridicaService() {
-        this.pessoaJuridicaDAO = new PessoaJuridicaDAO();
-    }
+    public void validar(PessoaJuridica PJPJ) throws
+            EntidadeOuClasseEmBrancoOuNaoInformadaException,
+            CampoEspecificoNaoInformadoException,
+            TamanhoMaximoDoCampoExcedidoException,
+            ValorInvalidoException {
 
-    public void validar(PessoaJuridica pessoaJuridica) throws EntidadeNaoInformadaException, CampoNaoInformadoException, TamanhoCampoInvalidoException {
-        if (pessoaJuridica == null) {
-            throw new EntidadeNaoInformadaException("Pessoa Jurídica");
+        if (PJPJ == null) {
+            throw new EntidadeOuClasseEmBrancoOuNaoInformadaException("pais");
         }
 
-        if (pessoaJuridica.getCnpj() == null || pessoaJuridica.getCnpj().isBlank() || pessoaJuridica.getCnpj().isEmpty()) {
-            throw new CampoNaoInformadoException("CNPJ");
+        if (PJPJ.getRazaoSocial() == null
+                || PJPJ.getRazaoSocial().isEmpty()
+                || PJPJ.getRazaoSocial().isBlank()) {
+            throw new CampoEspecificoNaoInformadoException("razão social");
         }
 
-        if (pessoaJuridica.getRazaoSocial() == null || pessoaJuridica.getRazaoSocial().isBlank() || pessoaJuridica.getRazaoSocial().isEmpty()) {
-            throw new CampoNaoInformadoException("Razão Social");
+        if ((PJPJ.getRazaoSocial().length() > 60)) {
+            throw new TamanhoMaximoDoCampoExcedidoException("razão social", 60);
+        }
+        
+        if (PJPJ.getCnpj()== null
+                || PJPJ.getCnpj().isEmpty()
+                || PJPJ.getCnpj().isBlank()) {
+            throw new CampoEspecificoNaoInformadoException("cpf");
         }
 
-        if (pessoaJuridica.getRazaoSocial().length() > 100) {
-            throw new TamanhoCampoInvalidoException("Razão Social", 100);
+        if ((PJPJ.getCNPJ().length() > 18)) {
+            throw new TamanhoMaximoDoCampoExcedidoException("cpf", 18);
         }
 
-        if (pessoaJuridica.getCnaePrincipal() == null || pessoaJuridica.getCnaePrincipal().isBlank() || pessoaJuridica.getCnaePrincipal().isEmpty()) {
-            throw new CampoNaoInformadoException("CNAE Principal");
+        if (PJPJ.getFantasia() == null
+                || PJPJ.getFantasia().isEmpty()
+                || PJPJ.getFantasia().isBlank()) {
+            throw new CampoEspecificoNaoInformadoException("nome fantasia");
         }
 
-        if (pessoaJuridica.getCnaePrincipal().length() > 50) {
-            throw new TamanhoCampoInvalidoException("CNAE Principal", 50);
+        if ((PJPJ.getFantasia().length() > 60)) {
+            throw new TamanhoMaximoDoCampoExcedidoException("nome fantasia", 60);
         }
 
-        if (pessoaJuridica.getFantasia() == null || pessoaJuridica.getFantasia().isBlank() || pessoaJuridica.getFantasia().isEmpty()) {
-            throw new CampoNaoInformadoException("Fantasia");
+        if (PJPJ.getCnaePrincipal() == null
+                || PJPJ.getCnaePrincipal().isEmpty()
+                || PJPJ.getCnaePrincipal().isBlank()) {
+            throw new CampoEspecificoNaoInformadoException("cnae");
         }
 
-        if (pessoaJuridica.getFantasia().length() > 100) {
-            throw new TamanhoCampoInvalidoException("Fantasia", 100);
+        if ((PJPJ.getCnaePrincipal().length() > 100)) {
+            throw new TamanhoMaximoDoCampoExcedidoException("cnae", 100);
         }
+
+        if (PJPJ.getPessoa() == null) {
+            throw new EntidadeOuClasseEmBrancoOuNaoInformadaException("pessoa");
+        }
+
     }
 
     public List<PessoaJuridica> findAll() throws SQLException {
-        return pessoaJuridicaDAO.findAll();
+
+        PessoaJuridicaDAO pessoaJuridicaDAO = new PessoaJuridicaDAO();
+        List<PessoaJuridica> resultado = pessoaJuridicaDAO.findAll();
+
+        return resultado;
     }
 
-    public PessoaJuridica findByCnpj(String cnpj) throws SQLException, TamanhoCampoInvalidoException, Exception {
-        PessoaJuridica retorno = (PessoaJuridica) pessoaJuridicaDAO.findAll();
+    public PessoaJuridica findById(String cnpj) throws SQLException, TamanhoMaximoDoCampoExcedidoException, Exception {
 
-        if (retorno == null) {
-            throw new Exception("Não foi possível encontrar uma pessoa jurídica com o CNPJ " + cnpj + " informado.");
+        if (cnpj.length() <= 0) {
+            throw new TamanhoMaximoDoCampoExcedidoException("cnpj", 1);
         }
 
-        return retorno;
+        PessoaJuridicaDAO pessoaJuridicaDAO = new PessoaJuridicaDAO();
+        PessoaJuridica retorno = pessoaJuridicaDAO.findById(cnpj);
+
+        if (retorno == null) {
+            throw new Exception("Não foi possível encontrar um país com o id: " + cnpj + " informado");
+        }
+
+        return pessoaJuridicaDAO.findById(cnpj);
     }
 
-    public void insert(PessoaJuridica pessoaJuridica) throws SQLException, EntidadeNaoInformadaException, CampoNaoInformadoException, TamanhoCampoInvalidoException {
+    public void insert(PessoaJuridica pessoaJuridica) throws SQLException, EntidadeOuClasseEmBrancoOuNaoInformadaException, CampoEspecificoNaoInformadoException, TamanhoMaximoDoCampoExcedidoException, ValorInvalidoException {
         validar(pessoaJuridica);
-
+        PessoaJuridicaDAO pessoaJuridicaDAO = new PessoaJuridicaDAO();
         pessoaJuridicaDAO.insert(pessoaJuridica);
     }
 
-    public void update(PessoaJuridica pessoaJuridica) throws SQLException, EntidadeNaoInformadaException, CampoNaoInformadoException, TamanhoCampoInvalidoException {
+    public void update(PessoaJuridica pessoaJuridica) throws SQLException, EntidadeOuClasseEmBrancoOuNaoInformadaException, CampoEspecificoNaoInformadoException, TamanhoMaximoDoCampoExcedidoException, ValorInvalidoException {
         validar(pessoaJuridica);
-
+        PessoaJuridicaDAO pessoaJuridicaDAO = new PessoaJuridicaDAO();
         pessoaJuridicaDAO.update(pessoaJuridica);
     }
 
-    public void deleteByCnpj(String cnpj) throws SQLException {
+    public void delete(String cnpj) throws SQLException {
+        PessoaJuridicaDAO pessoaJuridicaDAO = new PessoaJuridicaDAO();
         pessoaJuridicaDAO.delete(cnpj);
+
     }
 }
+

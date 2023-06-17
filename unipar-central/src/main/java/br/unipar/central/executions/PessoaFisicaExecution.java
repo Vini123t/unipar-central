@@ -1,7 +1,7 @@
 package br.unipar.central.executions;
 
-import br.unipar.central.models.PessoaFisicaPOJO;
-import br.unipar.central.models.PessoaPOJO;
+import br.unipar.central.models.PessoaFisica;
+import br.unipar.central.models.Pessoa;
 import br.unipar.central.services.PessoaFisicaService;
 import java.sql.Date;
 import java.util.List;
@@ -11,7 +11,7 @@ public class PessoaFisicaExecution {
 
     public String Insert() {
         try {
-            PessoaFisicaPOJO pessoaFisica = new PessoaFisicaPOJO();
+            PessoaFisica pessoaFisica = new PessoaFisica();
             Scanner scanner = new Scanner(System.in);
             System.out.println("Informe o nome da pessoa fisica: ");
             pessoaFisica.setNome(scanner.nextLine());
@@ -30,8 +30,7 @@ public class PessoaFisicaExecution {
             pessoaFisica.setDataNascimento(dataNascimento);
 
             System.out.println("Informe o id da pessoa atrelada a essa pessoa física: ");
-            PessoaPOJO pessoaPOJO = new PessoaPOJO();
-            pessoaPOJO.setId(scanner.nextInt());
+            Pessoa pessoaPOJO = new Pessoa();
             pessoaFisica.setPessoa(pessoaPOJO);
 
             PessoaFisicaService pessoaFisicaService = new PessoaFisicaService();
@@ -49,9 +48,8 @@ public class PessoaFisicaExecution {
     public String FindAll() {
         try {
             PessoaFisicaService pessoaFisicaService = new PessoaFisicaService();
-            List<PessoaFisicaPOJO> procurarPorPessoaFisica = pessoaFisicaService.findAll();
-            PessoaFisicaPOJO pessoaFisicaPOJO = new PessoaFisicaPOJO();
-            pessoaFisicaPOJO.message();
+            List<PessoaFisica> procurarPorPessoaFisica = pessoaFisicaService.findAll();
+            PessoaFisica pessoaFisicaPOJO = new PessoaFisica();
             String msg = "Todos os itens encontrados " + procurarPorPessoaFisica.toString();
             System.out.println(msg);
             return msg;
@@ -65,14 +63,13 @@ public class PessoaFisicaExecution {
     public String FindById() {
         try {
             PessoaFisicaService pessoaFisicaService = new PessoaFisicaService();
-            PessoaFisicaPOJO pessoaFisica = new PessoaFisicaPOJO();
+            PessoaFisica pessoaFisica = new PessoaFisica();
             Scanner scanner = new Scanner(System.in);
 
             System.out.println("Informe o CPF da pessoa física para realizar a busca: ");
             String cpf = scanner.nextLine();
             pessoaFisica.setCpf(cpf);
-            PessoaFisicaPOJO pessoaFisicaPOJO = new PessoaFisicaPOJO();
-            pessoaFisicaPOJO.message();
+            PessoaFisica pessoaFisicaPOJO = new PessoaFisica();
             String msg = "Item encontrado: " + pessoaFisicaService.findById(pessoaFisica.getCpf());
             System.out.println(msg);
             return msg;
@@ -88,7 +85,7 @@ public class PessoaFisicaExecution {
             Scanner scanner = new Scanner(System.in);
 
             PessoaFisicaService pessoaFisicaService = new PessoaFisicaService();
-            PessoaFisicaPOJO pessoaFisica = new PessoaFisicaPOJO();
+            PessoaFisica pessoaFisica = new PessoaFisica();
 
             System.out.println("Informe o CPF de pessoa física: ");
             pessoaFisica.setCpf(scanner.nextLine());
@@ -105,7 +102,7 @@ public class PessoaFisicaExecution {
 
     public String Update() {
         try {
-            PessoaFisicaPOJO pessoaFisica = new PessoaFisicaPOJO();
+            PessoaFisica pessoaFisica = new PessoaFisica();
             Scanner scanner = new Scanner(System.in);
             System.out.println("Informe o nome da pessoa física: ");
             pessoaFisica.setNome(scanner.nextLine());
@@ -124,7 +121,7 @@ public class PessoaFisicaExecution {
             pessoaFisica.setDataNascimento(dataNascimento);
 
             System.out.println("Informe o id da pessoa atrelada a essa pessoa física: ");
-            PessoaPOJO pessoaPOJO = new PessoaPOJO();
+            Pessoa pessoaPOJO = new Pessoa();
             pessoaPOJO.setId(scanner.nextInt());
             pessoaFisica.setPessoa(pessoaPOJO);
             PessoaFisicaService pessoaFisicaService = new PessoaFisicaService();

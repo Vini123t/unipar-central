@@ -1,6 +1,6 @@
 package br.unipar.central.executions;
 
-import br.unipar.central.models.PessoaPOJO;
+import br.unipar.central.models.Pessoa;
 import br.unipar.central.services.PessoaService;
 import java.util.List;
 import java.util.Scanner;
@@ -9,7 +9,7 @@ public class PessoaExecution {
 
     public String Insert() {
         try {
-            PessoaPOJO pessoa = new PessoaPOJO();
+            Pessoa pessoa = new Pessoa();
             Scanner scanner = new Scanner(System.in);
 
             System.out.println("Informe o id de pessoa: ");
@@ -34,9 +34,8 @@ public class PessoaExecution {
     public String FindAll() {
         try {
             PessoaService pessoaService = new PessoaService();
-            List<PessoaPOJO> procurarPorPessoa = pessoaService.findAll();
-            PessoaPOJO pessoaPOJO = new PessoaPOJO();
-            pessoaPOJO.message();
+            List<Pessoa> procurarPorPessoa = pessoaService.findAll();
+            Pessoa pessoaPOJO = new Pessoa();
             String msg = "Todos os itens encontrados " + procurarPorPessoa.toString();
             System.out.println(msg);
             return msg;
@@ -50,14 +49,13 @@ public class PessoaExecution {
     public String FindById() {
         try {
             PessoaService pessoaService = new PessoaService();
-            PessoaPOJO pessoa = new PessoaPOJO();
+            Pessoa pessoa = new Pessoa();
             Scanner scanner = new Scanner(System.in);
 
             System.out.println("Informe o ID de pessoa para realizar a busca: ");
             int id = scanner.nextInt();
             pessoa.setId(id);
-            PessoaPOJO pessoaPOJO = new PessoaPOJO();
-            pessoaPOJO.message();
+            Pessoa pessoaPOJO = new Pessoa();
             String msg = "Item encontrado: " + pessoaService.findById(pessoa.getId());
             System.out.println(msg);
             return msg;
@@ -73,7 +71,7 @@ public class PessoaExecution {
             Scanner scanner = new Scanner(System.in);
 
             PessoaService pessoaService = new PessoaService();
-            PessoaPOJO pessoa = new PessoaPOJO();
+            Pessoa pessoa = new Pessoa();
 
             System.out.println("Informe o ID de pessoa: ");
             pessoa.setId(scanner.nextInt());
@@ -90,7 +88,7 @@ public class PessoaExecution {
 
     public String Update() {
         try {
-            PessoaPOJO pessoa = new PessoaPOJO();
+            Pessoa pessoa = new Pessoa();
             Scanner scanner = new Scanner(System.in);
 
             System.out.println("Informe o id de pessoa: ");

@@ -79,9 +79,8 @@ public class TransacaoExecution {
     public String FindAll() {
         try {
             TransacaoService transacaoService = new TransacaoService();
-            List<TransacaoPOJO> procurarPorTransacao = transacaoService.findAll();
-            TransacaoPOJO transacaoPOJO = new TransacaoPOJO();
-            transacaoPOJO.message();
+            List<Transacao> procurarPorTransacao = transacaoService.findAll();
+
             String msg = "Todos os itens encontrados " + procurarPorTransacao.toString();
             System.out.println(msg);
             return msg;
@@ -95,14 +94,13 @@ public class TransacaoExecution {
     public String FindById() {
         try {
             TransacaoService transacaoService = new TransacaoService();
-            TransacaoPOJO transacao = new TransacaoPOJO();
+            Transacao transacao = new Transacao();
             Scanner scanner = new Scanner(System.in);
 
             System.out.println("Informe o ID da transação: ");
             int id = scanner.nextInt();
             transacao.setId(id);
-            TransacaoPOJO transacaoPOJO = new TransacaoPOJO();
-            transacaoPOJO.message();
+
             String msg = "Item encontrado: " + transacaoService.findById(transacao.getId());
             System.out.println(msg);
             return msg;
@@ -118,7 +116,7 @@ public class TransacaoExecution {
             Scanner scanner = new Scanner(System.in);
 
             TransacaoService transacaoService = new TransacaoService();
-            TransacaoPOJO transacao = new TransacaoPOJO();
+            Transacao transacao = new Transacao();
 
             System.out.println("Informe o ID de transacao: ");
             transacao.setId(scanner.nextInt());
@@ -135,7 +133,7 @@ public class TransacaoExecution {
 
     public String Update() {
         try {
-            TransacaoPOJO transacao = new TransacaoPOJO();
+            Transacao transacao = new Transacao();
             Scanner scanner = new Scanner(System.in);
             System.out.println("Informe o id de transacao: ");
             transacao.setId(scanner.nextInt());
